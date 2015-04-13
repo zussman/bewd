@@ -44,3 +44,28 @@ So do it. Type without fear. Make your computer an extension of yourself.
 * **chmod** - change permission modifiers
 * **chown** - change ownership
 
+##Paths, Folders, Directories, oh my (pwd)
+Everyone's prompt might look different, especially on UNIX. But you'll probably have your user name before a "$" and then the name of your computer, or some variation on that theme.
+
+**What is a directory?**
+A directory is a folder. Folder and directory are the same thing, and they are used interchangeably. When you open the Finder on your computer to graphically find files, you are moving through folders, which are the exact same things as the directories you work with in the command line (Terminal).
+
+* **pwd** prints the working directory (that is, the directory that you are currently using!)
+
+##What? My name is hostname
+Use 'hostname' to figure out the name of your computer...or at least one of it's names:
+```
+hostname
+.local
+```
+##Make a directory (mkdir)
+There are many different ways that you can run mkdir. What does mkdir do? Good question. It makes directories (aka folders). In the tutorial for this part we made a really long path of directories. A path is just a tree of folders that make up your computer's hard disk. Pretty straightforward...
+
+##Change Directory (cd)
+The **cd** command takes you to the file based on the path you enter directly after the command. So, for example:
+`
+$ cd bewd
+$ pwd
+/Users/davidzussman/bewd
+`
+cd 
