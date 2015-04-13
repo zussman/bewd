@@ -43,5 +43,3 @@ So do it. Type without fear. Make your computer an extension of yourself.
 * **sudo** - DANGER! become super user root DANGER!
 * **chmod** - change permission modifiers
 * **chown** - change ownership
-
-EXPELLIARMUS!
