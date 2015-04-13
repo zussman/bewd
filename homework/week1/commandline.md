@@ -68,4 +68,3 @@ $ cd bewd
 $ pwd
 /Users/davidzussman/bewd
 `
-cd 
