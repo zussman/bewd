@@ -17,3 +17,30 @@ So do it. Type without fear. Make your computer an extension of yourself.
 * Before you go to bed, drill the cards you got wrong for about 5 minutes, then go to sleep.
 
 **Do NOT take command line advice from a random person on the Internet. Some hackers post misleading or harmful commands. Be wary.**
+
+#Basic Commands
+* **pwd** - print working directory
+* **hostname** - my computer's network name
+* **mkdir** - make directory
+* **cd** - change directory
+* **ls** - list directory
+* **rmdir** - remove directory
+* **pushd** - push directory
+* **popd** - pop directory
+* **cp** - copy a file or directory
+* **mv** - move a file or directory
+* **less** - page through a file
+* **cat** - print the whole file
+* **xargs** - execute arguments
+* **find** - find files
+* **grep** - find things inside files
+* **man** - read a manual page
+* **apropos** - find what man page is appropriate
+* **env** - look at your environment
+* **echo** - print some arguments
+* **export** - export/set a new environment variable
+* **exit** - exit the shell
+* **sudo** - DANGER! become super user root DANGER!
+* **chmod** - change permission modifiers
+* **chown** - change ownership
+
