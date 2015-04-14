@@ -42,9 +42,14 @@ FIRE ALARM WENT OFF HERE!!!
 **Stack exchange** is a great place for information. The other good one is apidock.com. It has really great help on ruby and ruby on rails. That is bill's favorite numeral method on there. Not required for today's homework but you should definitely look it up
 
 #Github! (and git)
-##Github Basics
+##Git Basics
 You can use git and github to version your files. Github has a cool feature called "organizations" that allow you to siphon your work between personal work for yourself and business work you make for your company. That's nice to know.
 
-Keep your commit messages to 50 characters or less!
+Keep your commit messages to 50 characters or less! In fact, it's good to use the subl command on slack to make it so that when you enter ```git commit``` the Terminal will open Sublime Text and you can enter your commit name and notes there instead of in the Terminal. Bill says this is best practice. It's pretty cool.
+
+A **shaw** is a cryptographic string that is a unique identifier. Git uses them to identify each commit. That's a really important string because it saves your information uniquely.
+
+##Tab Completion
+Tab completion is really cool. Start typing a word, and hit tab to complete it. It's pretty cool.
 
 
