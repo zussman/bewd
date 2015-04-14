@@ -45,6 +45,6 @@ FIRE ALARM WENT OFF HERE!!!
 ##Github Basics
 You can use git and github to version your files. Github has a cool feature called "organizations" that allow you to siphon your work between personal work for yourself and business work you make for your company. That's nice to know.
 
-
+Keep your commit messages to 50 characters or less!
 
 
