@@ -52,4 +52,10 @@ A **shaw** is a cryptographic string that is a unique identifier. Git uses them 
 ##Tab Completion
 Tab completion is really cool. Start typing a word, and hit tab to complete it. It's pretty cool.
 
+##Github
+Git push usually requires another term to actually get pushed to but because Github is so ubiquitous you can just type ```git push``` rather than ```git push heroku```
+
+##Homework
+For homework: Fork, update, and submit a pull request for our homework/dev_workflow branch.
+
 
