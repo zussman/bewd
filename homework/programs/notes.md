@@ -121,4 +121,41 @@ var2 = '5'
 puts var1.to_s + var2
 ```
 Outputs: ```25```.
-In the same vein, '.to_i' gives the integer value of an object, and '.to_f' gives the float version of an object.
+In the same vein, '.to_i' gives the integer value of an object, and '.to_f' gives the float version of an object. These **methods** *do NOT change* the value that the variable is pointing to. It just serves up a different version of that object.
+There are some good examples in the exercise.rb file, but there are a few that were odd that are worth mentioning here:
+
+```
+puts '5 is my favorite number!'.to_i
+puts 'Who asked you about 5 or whatever?'.to_i
+puts 'Your momma did.'.to_f
+```
+Outputs the following:
+
+```
+5
+0
+0.0
+```
+The reason that it outputs anything is that ```.to_i``` ignores the first thing it doesn't understand (and the rest of the string from that point on). So, the first line was converted to 5, but the next two lines, since they began with letters, were ignored completely, so the computer just picks zero.
+
+##5.2 Another look at puts
+Here's a secret. The 's' in 'puts' really stands for *string*. 'puts' really stands for *'put string'*. So really anything you use 'puts' for will be output as a string. Ruby has many types of objects, and it is good to know that if you try to 'puts' a really weird object it will always output as a string.
+
+##5.3 The gets method
+Just as **puts** always spits out strings, **gets** only retrieves only strings. And where does it get them from?
+
+Your keyboard!
+
+```puts gets``` will just spit back out anything you type. Kind of cool.
+
+##5.4 Did it work?
+Yes! Congratulations on successfully using the command line to run these exercises. You are competent on day 2.5 of class.
+
+##5.5 The chomp Method
+Yay! ```gets``` allows you to make interactive programs!
+Check out the exercise.rb file to see the result!
+
+\*Note: if you press the ```Enter``` key while typing into a ```gets```, it will grab the ```Enter``` key! Fortunately, there's a **method** that deals with just this sort of issue: ```chomp```. You use chomp in the exercise.rb file.
+
+##5.6 A few things to try
+Check out exercises.rb for these. You did a good job, I think.
