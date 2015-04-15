@@ -97,3 +97,28 @@ Mozart was "da bomb" in his day.
 But I prefer Beethoven, personally.
 ```
 **Variables** can point to any kind of **object**, not just strings. 
+
+*Variables point to their values, not the other way around. So once you change what a variable is pointing to, other variables that were also pointing to the original value will NOT change with it.*
+
+#Chapter 5 - Mixing it Up
+We have seen a few different types of **objects**: integers, floats, and strings. We have also made **variables** that point to them. Now, let's bring them together.
+One problem we have is that you can't add a string and a number together. So, the following does not work:
+
+```
+var1 = 2
+var2 = '5'
+puts var1 + var2
+```
+The problem is that your computer doesn't know if you want the output to be ```7``` (2 + 5) or ```25``` ('2' + '5').
+Let's start with getting var1 to be a string instead of a number, so that the output would be 25.
+
+##5.1 Conversions
+To get the string version of an object, just write '.to_s' after it:
+
+```
+var1 = 2
+var2 = '5'
+puts var1.to_s + var2
+```
+Outputs: ```25```.
+In the same vein, '.to_i' gives the integer value of an object, and '.to_f' gives the float version of an object.
