@@ -66,3 +66,34 @@ The backslash escapes itself and the apostrophe, as you can see in the exercises
 puts 'up\\down'
 puts 'up\down'
 ```
+
+#Chapter 4 - Variables and Assignments
+You can store a string or number in your computer's memory for later use. To store the string in your computer's memory you need to give it a name. Programmers call this process **assignment** and they call the names **variables**. A variable name can usually be just about any sequence of letters and numbers.In Ruby, the first character of the name *needs to be a lowercase letter*. 
+
+```
+my_string = '...you can say that again...'
+puts my_string
+puts my_string
+```
+will print out:
+
+```
+...you can say that again...
+...you can say that again...
+```
+Just as we can **assign** an object (in this case a string object) to a variable, we can **reassign** a different object to that variable.
+
+```
+composer = 'Mozart'
+puts composer + ' was "da bomb" in his day.'
+
+composer = 'Beethoven'
+puts 'But I prefer ' + composer + ', personally.'
+```
+will output:
+
+```
+Mozart was "da bomb" in his day.
+But I prefer Beethoven, personally.
+```
+**Variables** can point to any kind of **object**, not just strings. 
