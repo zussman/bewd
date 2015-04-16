@@ -186,3 +186,42 @@ We did the FizzBuzz exercise in class. I saved it as fizzbuzz.rb in the classwor
 * Strange characters
 
 ---
+
+##What are Methods?
+Methods are the same as 'functions' in JavaScript. A Method takes inputs and performs actions using the inputs to create an output. A Method can only use variables that come from arguments or that are defined within the method itself. The ability to pass arguments into a method is a really powerful idea.
+
+You can assign a variable as equal to a method. Then, when you call the variable it will run the method.
+
+####Toaster example (method.rb)
+
+```
+def toaster(tray)
+  return "#{tray} is now toasty!"
+end
+
+puts "Insert some bread."
+
+bread = gets.chomp
+
+puts toaster(bread)
+```
+###Returns
+Every method in Ruby has to return something. A method can only return one thing. When it gets to the return it will stop. So anything that is written inside the method after the return will not actually happen. Ruby will stop after return. But things that are written before the return will happen.
+
+If you don't actually put a return statement into a method, then it will return the last value that was returned within the method. That is the difference between **implicit returns** and **explicit returns**. It is best practice to specify what is being returned with explicit returns.
+
+###Side Effects
+A method will always return something. It might also have a side effect. It isn't something that is being returned, just something that happens as a result of the method. Ruby methods *may* have side effects.
+
+###Bangs!
+```
+integer.upcase!
+```
+is the same as 
+
+```
+integer = integer.upcase
+```
+This is really important to know, because you'll probably see people use the bang all the time in their code (it's called a bang). Bangs do not work with everything. We tried to do it with the ```to_i``` method and it didn't work.
+
+
