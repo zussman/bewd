@@ -14,6 +14,8 @@ The Bash profile is something you should look into. Robin seemed keen on it, any
 ##Ruby, what it is.
 There are a lot of programming languages out there. For newbies, they are really functionally all similar. But different languages have different ways they look, so programmers will have preferences for different languages. Some give you leeway, some are *very* explicit. Some run faster than others. But until you're doing super complex stuff you don't have to worry about it. Ruby is actually made out of C, but it runs slower than C, which is really fast. Ruby is kind of an **abstraction** of C. Ruby takes out a lot of the busywork that you need for C that you don't need in Ruby.
 
+Ruby reads things left to right and top->down. Standard format is to use two spaces rather than one tab for indentation. In JavaScript it's four, but you should really use two spaces to indent. Ruby does not take whitespace into account.
+
 ##Rails, what it is.
 Rails is a **framework**. It takes care of a whole bunch of stuff that you would normally have to do. Like setting up a server, which can be really busy and tedious. A **framework** is something you insert your code into. A **library** gives you code to use. A framework would be the 3.5 essay framework from High School. It is a useful constraint system. Rails is a framework that forces you to put your code in certain ways. 
 ###Benefits
@@ -120,3 +122,67 @@ A class is a type of object within Ruby. There are a bunch of types of objects, 
 
 ##Methods
 Methods are "mini-machines that do stuff".
+
+---
+##Class Exercise (If statements)
+We ran an if statement ruby that I named if_statements.rb. Check it out if you're interested.
+It goes through the ```if```, ```elsif``` ```else``` situations that you can create. You can only run comparisons with ```if``` and ```elsif```. You don't need an ```else``` or an ```elsif```.
+
+---
+
+##Syntactic Sugar
+Synactic sugar means that you have greater flexibility in how you write stuff. So you don't need parenthesis around your comparisons. A lot of programmers like that. They think it adds flavor and makes the language better. Others like more structured languages.
+
+##Truthy and falsy
+You don't need a comparison. You can run an if statement that just checks if the variable exists and has value.
+###Falsy
+* nil
+* false
+
+```
+name = nil
+
+if name
+  puts "Name exists!"
+else
+  puts "Thing does not exist"
+end
+```
+
+###Truthy
+* string
+* integer
+* boolean
+* symbol
+* float
+
+```
+name = true
+
+if name
+  puts "Name exists!"
+else
+  puts "Thing does not exist"
+end
+```
+##Comparisons
+* equals --> ==
+* does not equal --> !=
+
+##Interpolation
+Alternate way of including ruby in a string. This is an example of syntactic sugar and it plays a role in rails.
+
+```
+name = gets.chomp
+
+puts "Hello, #{name}""
+```
+
+---
+##FizzBuzz Class Exercise
+We did the FizzBuzz exercise in class. I saved it as fizzbuzz.rb in the classwork folder for Week 2. The guy next to me thought of a bunch of use cases that would fail if they entered it:
+* Negative numbers
+* Strings
+* Strange characters
+
+---
