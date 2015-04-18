@@ -69,15 +69,38 @@ puts "[secret number is #{secret_number}.]"
 puts '"So, ' + player_name + ', what is your first guess?"'
 first_guess = gets.chomp
 
+# You need to have a variable that keeps track of how many guesses have been made.
+  # However, you can't just add 1 to the number of guesses until they are three or more.
+  # You should only add if the guess is an integer between 1 and 10.
+# You also need a number checker for each guess. The checker should run after every guess before 
+  # If the number is good, the number checker function should return true. Otherwise it should return false.
+    # If the number is good, then it should add a guess
+
+guessed_number = guessed_number.to_i
+
 # Check the Number. If it's a number between 1 and 10, run the number_guesser function on it.
 def number_checker (guessed_number, secret_number)
   # Make sure the guess isn't a string, 0, negative, or larger than 10.
-  guessed_number = guessed_number.to_i
   if guessed_number <= 0 or guessed_number > 10
     puts "Sorry, please guess an integer number between 1 and 10, inclusive."
   else
     puts "Now we'll do the number_guesser function"
     #number_guesser(guess, number)
+  end
+end
+
+# Higher, Lower, or Equal
+def compare guessed_number, secret_number, guess
+  # Check if guessed number is higher, lower, or equal to the secret number.
+  if guessed_number == secret_number
+    puts 'You guessed correctly on the ' + guess + 'try!'
+    game_over
+  elsif guessed_number > secret_number
+    puts 'Your ' + guess + ' is too high. Try again!'
+    guess += guess
+  elsif guessed_number < secret_number
+    puts 'Your ' + guess + ' is too low. Try again!;'
+    guess += guess
   end
 end
 
