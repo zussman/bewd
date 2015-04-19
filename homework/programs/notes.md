@@ -159,3 +159,50 @@ Check out the exercise.rb file to see the result!
 
 ##5.6 A few things to try
 Check out exercises.rb for these. You did a good job, I think.
+
+#Chapter 6 - More About Methods
+We have seen 10 methods already. What are they?
+1. puts
+2. gets
+3. to_i
+4. to_s
+5. to_f
+6. chomp
+7. +
+8. -
+9. *
+10. /
+
+"**methods** are things that do stuff."
+If **objects**, like strings, integers, and floats are the nouns in the Ruby language, **methods** are the verbs. Just like in English, you need a noun (or object) that completes the verb.
+
+###Arithmetic are methods too
+You may not realize it, but when you type in:
+
+```
+puts('hello ' + 'world')
+puts((10 * 9) + 9)
+```
+You are really typing in
+
+```
+puts('hello '.+ 'world')
+puts((10.* 9).+ 9)
+```
+The dots (periods) denote the object and the method to be applied to the object, as in `object.method`. It is important to understand what's *really* happening when you use the arithmetic methods.
+
+##6.1 Fancy String Methods
+We're going to learn some helpful methods!
+
+* **reverse** - returns a reversed version of a string object. `'hello world'.reverse = dlrow olleh`. It doesn't change the original object that you apply it to. It just makes a new backwards version of it.
+* **length** - returns the number of characters in a string object. **length** returns an integer, so remember that you will need to convert to a string if you want to print the result.
+* **upcase** - changes characters in an object to uppercase.
+* **downcase** - changes characters in an object to lowercase.
+* **swapcase** - switches the case of every letter in a string.
+* **capitalize** - downcase, except makes the first letter uppercase (if it's a letter).
+* **center** - makes text centered along some line width.
+* **ljust** - left justifies object.
+* **rjust** - right justifies object.
+
+##6.2 A few things to try
+I completed a few exercises in the homework programs folder for chapter 6 including the *Angry Boss* and the *Table of Contents* exercises.
