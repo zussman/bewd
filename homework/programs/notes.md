@@ -206,3 +206,109 @@ We're going to learn some helpful methods!
 
 ##6.2 A few things to try
 I completed a few exercises in the homework programs folder for chapter 6 including the *Angry Boss* and the *Table of Contents* exercises.
+
+##6.4 More Arithmetic
+There are two more arithemtic methods: `**` and `%`. 
+####Exponents
+The double-splat `**` is used for writing exponents. You can use floats for your exponents, so to find the square root of `5` you would write `5**0.5`. To find the square of `5` you would write `5**2`.
+####Modulus
+The modulus method gives you the remainder after division by a number. So, `7%3` would give you `1`.
+####Absolute Value
+To find the absolute value of a number, use the `.abs` method.
+
+##6.5 Random Number
+The method to get a randomly chosen number is **rand**. If you call **rand** just on its own, you'll get a float greater than or equal to 0.0 and less than 1.0. If you give it an integer parameter (by calling rand(5), for example), it will give you an integer greater than or equal to 0 and less than 5 (so five possible numbers, from 0 to 4).
+
+###*Seed* Rand
+Sometimes you want a random number generator to return the *same* random numbers in the same sequance on two different runs of your program. That is what **srand** does. It will do the same thing every time you seed it with the same number. If you want to get different numbers again, then just call srand, passing in no parameter. This might seed it with a really weird number, using (among other things) the current time on your computer down to the millisecond.
+
+##6.6 The Math Object
+\* Sidenote!
+In Ruby, variables start with a lowercase letter. **Constants** begin with an uppercase letter. The Math Object is a Constant. Ruby will get annoyed with you if you try to change a constant. There are many constants within the Math Object:
+* Math::PI
+* Math::E
+* Math.cos
+* Math.tan
+* Math.log
+* Math.sqrt
+
+You may be wondering what the `::` notation does. Well, it is called a **scope operator** and it is beyond the scope of this ebook! But you can use Math::PI like any other vairable. `Math` has all the features you would expect a decent calculator to have. And the floats are *really* close to being the right answers but not exact. Do not trust them further than you can calculate them.
+
+#Chapter 7 - Flow Control
+We are going to breathe life into our programs in this chapter.
+##7.1 Comparison Methods
+You can compare two numbers using usual "greater than" or "less than" statements:
+
+```
+puts 1 > 2
+puts 1 < 2
+false
+true
+```
+Similarly, you can use normal "greater than or equal to" style comparisons:
+
+```
+puts 5 >= 5
+puts 5 <= 4
+true
+false
+```
+Finally, you can check if two objects are equal using `==` and `!=` to check if things are 'equal' or 'different' respectively.
+###Lexicographical Ordering
+You can compare two strings, but Ruby will compare their **lexicographical ordering**, which basically means the order that they would appear in the dictionary (alphabetically).
+
+```
+puts 'cat' < 'dog'
+true
+```
+There is a catch though. The way computers do things, they order capital letters as coming before lowercase letters. So 'Xander' would come before 'bug lady'. So if you want to figure out which word would actually ome first make sure you upcase or downcase your strings before comparing them.
+
+##7.2 Branching
+**Branching** is a simple and powerful concept in programming.
+
+```
+puts 'Hello, what\'s your name?'
+name = gets.cchomp
+puts 'Hello, ' + name + '.'
+
+if name == 'Chris'
+  puts 'What a lovely name!'
+end
+```
+
+That is how branching works. If what comes after the **if** is *true*, we run the code between the **if** and the **end**. IF what comes after the **if** is *false*, we don't.
+Good indentation of your branching is crucial to having readable code. Have your `if` and your `end` line up vertically, and have everything between them indented. Use an indentation of two spaces in Ruby.
+
+Branching is kind of like a fork in the code. Branches can have their own branches, as you can see in the exercises for this chapter. He strongly suggest writing your `if`, `else`, `elsif`, and `end` statements all at the same time, because then he can focus on filling in the code for each conditional. Even though the program isn't filled in, it will still run successfully. 
+
+##7.3 Looping
+Often, you'll want your computer to do the same thing over and over again. You can tell your computer to do a task over and over using a few different techniques.
+
+###while loop
+**while** tells your computer to repeat certain parts of a program while a condition is true. **while** is not a fabulous program though. For one thing, **while** tests your condition at the top of the loop. 
+
+```
+input = ''
+
+while input != 'bye'
+  puts input
+  input = gets.chomp
+end
+
+puts 'Come again soon!'
+```
+
+To get a while loop to loop forever, you just have to give it a condition that is always true. Ruby has a way to break out of **while loops**.
+
+```
+\# This is so totally a real program!
+while 'Spike' > 'Angel'
+  input = gets.chomp
+  puts input
+  if input == 'bye'
+  	break
+  end
+end
+
+puts 'Come again soon!'
+
