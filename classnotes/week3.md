@@ -13,3 +13,6 @@ Use Rubinius as a guide for looking up methods you don't understand.
 * Always use two spaces, *not* tabs.
 
 There are some less-common iterators, which are in the slides.
+
+###Inline ternary
+You can write an if statement in a very short space.
