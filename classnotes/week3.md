@@ -51,4 +51,31 @@ You should look at each of the following methods as part of your homework:
 * .shift
 * .include?
 * .any? *Bill loves this one! Definitely look at it!*
-* 
+
+####Aside
+If you find shortcuts or answers to questions you're looking for, just save them to evernote or a similar service. It's a good tool for tracking stuff that you've found helpful.
+
+####Aside #2!
+You can just use ```command k``` to clear your screen, even in irb.
+
+####Aside #3
+Symbols are a little faster in Ruby, because they're reused. They take up less memory, and they are immutable. So they take up less memory.
+
+
+##Collections and Hashes
+###Hashes
+* Often referred to as dictionaries
+* Each entry in a hash needs a **key** and a **value**.
+* An array is an *ordered* list of objects.
+* A hash is an *unordered* list of key and value pairs.
+* Hashes are like the object-oriented dictionaries you have created in Javascript
+* You can use strings for your keys, but symbols are often a better option.
+
+Go back through the emails.
+***Very cool*** way to set up keys is just to do the symbol followed by the colon and then the value:
+
+```
+person = { name: 'David', age: 26 }
+```
+
+
