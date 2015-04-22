@@ -61,6 +61,9 @@ You can just use ```command k``` to clear your screen, even in irb.
 ####Aside #3
 Symbols are a little faster in Ruby, because they're reused. They take up less memory, and they are immutable. So they take up less memory.
 
+####Aside #4
+Consider taking a look at pry. for ruby. http://pryrepl.org
+
 
 ##Collections and Hashes
 ###Hashes
@@ -78,4 +81,55 @@ Go back through the emails.
 person = { name: 'David', age: 26 }
 ```
 
+#Wednesday - Collections, Loops, and APIs with Andrei
 
+We are not going over classes today. Just collections, loops and APIs! We're going to work with an API and build it out. There's going to be a lot of coding today!
+##Announcements
+* Mikael is back next week.
+* Office hours on Saturday in the afternoon, probably over Google Hangout.
+* We're changing how we submit homework.
+
+##Recap
+* Variables
+* Conditionals
+* Iterations
+* Collections
+
+```
+2.2.1 :001 > my_car = Hash.new
+ => {} 
+2.2.1 :002 > my_car[:make] = "Acura"
+ => "Acura" 
+2.2.1 :003 > my_car[:model] = "NSX"
+ => "NSX" 
+2.2.1 :004 > my_car[:year] = 1996
+ => 1996 
+2.2.1 :005 > my_car
+ => {:make=>"Acura", :model=>"NSX", :year=>1996} 
+2.2.1 :006 > my_car[:rims] = 'spinners'
+ => "spinners" 
+2.2.1 :007 > my_car
+ => {:make=>"Acura", :model=>"NSX", :year=>1996, :rims=>"spinners"} 
+2.2.1 :008 > my_car[:miles] = 26354
+ => 26354 
+2.2.1 :009 > my_car
+ => {:make=>"Acura", :model=>"NSX", :year=>1996, :rims=>"spinners", :miles=>26354} 
+2.2.1 :010 > my_car['color'] = 'blue'
+ => "blue" 
+2.2.1 :011 > my_car
+ => {:make=>"Acura", :model=>"NSX", :year=>1996, :rims=>"spinners", :miles=>26354, "color"=>"blue"} 
+2.2.1 :012 > 
+```
+Here's a way to see if a key exists in the hash:
+
+```
+2.2.1 :023 > my_car.has_key? :make
+ => true 
+2.2.1 :024 > my_car.has_key? 'make'
+ => false 
+2.2.1 :025 > 
+```
+
+* .values - Values gets the values of the hash.
+* .empty? - Checks if the hash is empty.
+* .delete - deletes a key value pair
