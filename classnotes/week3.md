@@ -130,6 +130,23 @@ Here's a way to see if a key exists in the hash:
 2.2.1 :025 > 
 ```
 
-* .values - Values gets the values of the hash.
+* .values - Values gets the values of the hash. Values has no parameters, but many methods have properties. You'll have to get used to these.
 * .empty? - Checks if the hash is empty.
 * .delete - deletes a key value pair
+
+##APIs - Application Programming Interface
+A standard for how your program will communicate with Internet services. A way to pull data from a program or website.
+###Working with APIs
+1. Ask for some data
+2. Convert it to a format you can work with
+3. Do cool stuff with it!
+
+Let's say you have a series of news stories and you want to see how often something is mentioned. The way to communcate with APIs is through HTTP protocal. It is really similar to what you're doing with a browser. APIs are typically used to just consume the data in a different format. They don't just see data or markup. They aren't interested in HTML or CSS. HTML describes how the page will look, but the API is more focused on the data.
+
+####Rest-client
+A great library in Ruby that is used to make API and HTTP calls.
+
+##JSON
+Once we get data we need it in a format that's useful. The common format that APIs return is JSON (JavaScript Object Notation). It's very similar to the Ruby hash. We'll use a ruby library called JSON that will convert actual JSON to a format that Ruby can read.
+
+* **require** - pulls a library into your program.
