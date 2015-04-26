@@ -311,4 +311,64 @@ while 'Spike' > 'Angel'
 end
 
 puts 'Come again soon!'
+```
 
+##Chapter 8 - Writing Your Own Methods
+You can define and call your own methods in Ruby. Anytime you want to do something in many different places throughout your program, you can use custom methods.
+
+```
+def sayMoo
+  puts 'moooooooo...'
+end
+
+sayMoo
+sayMoo
+
+```
+In the code example above, we just **def**ined the method `sayMoo`. Method names, like variable names, start with a lowercase letter. Some methods can just be called on an object (like `gets`, `to_s`, and `reverse`). Others take **parameters** to tell the object how to do the method. 
+
+You can define a method with parameters like this:
+
+```
+def custom_method parameter_one parameter_two
+  #multiply your parameters together and add 5
+  (parameter_one * parameter_two) + 5
+end
+```
+In the example above, `parameter_one` and `parameter_two` are variables that point to the parameters passed into the method. If you call the method elsewhere, the variables `parameter_one` and `parameter_two` will point to the parameters passed into the method. You can have as many parameters as you like...
+
+```
+custom_method (3,4)
+```
+would return `17`.
+
+The parameters you define in your method are *required*. Your method needs those parameters in order to complete it's tasks. If objects in Ruby are like nouns in English and methods are like verbs, then parameters are almost like adverbs, which tell you how to complete the verbs.
+
+##Local Variables
+You can also assign local variables within your method.
+
+```
+def doubleThis num
+  numTimes2 = num * 2
+  puts num.to_s + ' doubled is ' + numTimes2.to_s
+end
+
+doubleThis 44
+```
+returns `44 doubled is 88`.
+The two variables in the `doubleThis` method are `num` and `numTimes2`. They both sit inside the method. Those variables are **local variables**. That means they live inside the method and they cannot leave. If you try, you will get an error.
+
+This is a good thing. It means that local variables cannot mess up other code or change other variables of the same name in different locals.
+
+##Return Values
+Some methods give you something back when you call them. For example, `gets` ***returns*** a string (the string you typed in) and the `+` method in `5 + 3` **returns** `8`. The arithmetic methods for numbers return numbers, and the arithmetic methods for strings return strings.
+
+It is important to understand the difference between methods returning a value to where the method was called, and your program outputting information to your screen. Those **ARE NOT** the same thing!! You know this intuitively because methods like `puts` obviously output to the screen but don't necessarily return anything. Similarly, `5 + 3` returns `8`, but it does not output `8`.
+
+#####So What does `puts` return?
+You can easily test this, but `puts` always just returns `nil`, even though it outputs strings. *Every method has to return something, even if it's just `nil`.* 
+
+You completed an exercise here to show how returns work, which you can check out in bewd/homework/programs/chapter8/exercises.rb.
+
+##Exercises
+1. Write a program that takes a number from 0 to 100 and outputs the written equivalent (zero to one hundred).

@@ -5,6 +5,7 @@
 # Parse the data results from the Reddit APIs using the JSON library.
 # Build an array of hashes. Convert it to a new data structure by iterating through it and building our own hashes.
 # Every hash is going to represent a single story.
+
 require 'rest-client'
 require 'json'
 
