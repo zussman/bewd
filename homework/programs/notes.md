@@ -372,3 +372,135 @@ You completed an exercise here to show how returns work, which you can check out
 
 ##Exercises
 1. Write a program that takes a number from 0 to 100 and outputs the written equivalent (zero to one hundred).
+
+---
+#Chapter 9 - Classes
+We have seen several types of objects: strings, integers, floats, arrays, and a few special objects (true, false, nil). In ruby, these *classes* of objects are always capitalized: `String`, `Integer`, `Float`, `Array`, etc...
+
+In general, if we want to create a new object of a certain class, we use `new`.
+
+```
+a = Array.new + [12345] # Array addition
+b = String.new + 'hello' # String addition.
+c = Time.new
+```
+
+Numbers are the exception. You can't create an integer with `Integer.new`. You just have to write the integer.
+
+##The Time Class
+`Time` objects represent moments in time. You can add (or subtract) numbers to (or from) times to get new times. Adding `1.5` to a time makes a new time one-and-a-half seconds later.
+
+##Extending Classes
+You can create your own classes. Here's how you do that:
+
+```
+class Integer
+  def to_eng
+    if self == 5
+      english = 'five'
+    else
+      english = 'fifty-eight'
+    end
+    
+    english
+  end
+end
+
+\# Let's test some numbers...
+puts 5.to_eng
+puts 58.to_eng
+```
+will output...
+
+```
+five
+fifty-eight
+```
+So, we defined an integer method by jumping into the `Integer` **class**, defining the method there, and then jumping back out. Now, all integers have this method. 
+
+Classes are really powerful, because they enable you to create objects that have their own methods, variables, etc. Inside that method we use **self** to refer to the object (the integer) using the method.
+
+##Creating Classes
+Here's how we could create a Die class:
+
+```
+class Die
+
+  def roll
+    1 + rand(6)
+  end
+
+end
+
+\#Let's make a couple of dice...
+dice = [Die.new, Die.new]
+
+\# ...and roll them.
+dice.each do |die|
+  puts die.roll
+end
+```
+##Instance Variables
+Normally, when we talk about a string, we just call it a string. But it should be called a *string object*. Sometimes programmers might call it an 'instance of the class String', but that's just a fancy way of saying string. An *instance* of a class is just an object of that class.
+
+So instance variables are just an object's variables. A method's local variables last until the method is finished. An object's instance variables, on the other hand, will last as long as the object does. To tell instance variables form local variables, they have @ in front of their names:
+
+```
+class Die
+
+  def roll
+    @numberShowing = 1 + rand(6)
+  end
+  
+  def showing
+    @numberShowing
+  end
+
+end
+
+die = Die.new
+die.roll
+puts die.showing
+puts die.showing
+die.roll
+puts die.showing
+puts die.showing
+```
+will return
+
+```
+6
+6
+4
+4
+```
+So `roll` rolls the die and `showing` tells us which number is showing.
+
+###Initialize
+You can initialize your methods and instance variables when your class instance is created:
+
+```
+class Die
+
+  def initialize
+    # I'll just roll the die, though we
+    # could do something else if we wanted
+    # to, like setting the die with 6 showing.
+    roll
+  end
+  
+  def roll
+    @numberShowing = 1 + rand(6)
+  end
+  
+  def showing
+    @numberShowing
+  end
+
+end
+
+puts Die.new.showing
+```
+
+## Exercises
+There are a ton of Chapter 9 - Classes exercises. Do them!
