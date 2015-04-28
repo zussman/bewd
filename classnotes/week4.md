@@ -144,4 +144,12 @@ end
 ```
 Using the `attr_accessor` method allows you to skip the Access Methods and Setter Methods. You no longer have to write those methods for every single instance variable. Remember though, *this only works for **instance variables** in the `attr_accessor`*. You could create access but not set capabilities at the top using the `attr_reader` function. Similarly, you can just have `attr_writer` to write attributes for specific variables. `attr_accessor` is basically, just `attr_writer` and `attr_reader` put together.
 
+## Writing classes is a skill
+Part of development is that your classes will always be changing, but you should sit down and map out what your class' properties and methods should likely be. It will help a lot down the line.
+
+---
+**At this point you went through the `creating objects` exercise, which is in your classworks folder, week 4.**
+
+---
+
 
