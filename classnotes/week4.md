@@ -151,5 +151,80 @@ Part of development is that your classes will always be changing, but you should
 **At this point you went through the `creating objects` exercise, which is in your classworks folder, week 4.**
 
 ---
+#Class 4 Part II
+##Agenda
+* Reviewing Scope
+* Class Methods and Variables
+* Sharing Code: Inheritance
+* Sharing Code: Mixins
+* Lab Time
 
+##Scope
+When you have a method defined in a class, you can call that method on an instance of that class. If you have the same method name outside of the class it is a totally different method and won't apply to class instances.
+
+##Class instances vs Instances of a Class
+* every defined class is itself an instance of class
+* every defined instance of class are the isntances of that class
+* So, stuff that uses `self.method` affects the class itself.
+* Basically, you can use class methods (like `self.method`) to do something to all of the instances of a class.
+* You have to use the `@@variable` to create a **class variable**. Those are variables for the class.
+* Look up **singleton variables**.
+
+##Inheritance
+Inheritance allows you to waterfall class methods and properties, which can be really powerful.
+
+Use the word `super` to look up the parent or super methods that belong to the parent. Super will work all the way up the chain, so you can reference things all the way at the top!
+
+Please check out the code_cemo_stdnt_inheritance.rb file to learn about inheritance because it was too difficult to follow along and take notes at the same time.
+
+* One class can inherit the capabilities of another using the `>` operator
+* Sub-classes inherit from super classes
+* A child can override a parent variable or method by reusing its name.
+* If defined in different physical files, a child would need to `require` it's parent. That is a best practice in almost all occassions.
+* You can only inherit from one class.
+
+##Modules/Mixins
+* "Mixins" are a facility to import code into a class.
+* You can pull in a bunch of mixins into your class.
+* Often have a 'able' ending to them
+
+```
+module Upvotable
+    def upvote!
+      @upvote += 1
+    end
+
+    def downvote!
+      @upvote -= 1
+    end
+  end
+
+  class Photo
+    attr_reader :photographer, :resolution, :upvotes
+    include Upvotable
+
+    def initialize(photographer, resolution)
+      @photographer = photographer
+      @resolution = resolution
+      @upvotes = 1
+    end
+  end
+
+  class Story
+    attr_reader :title, :author, :upvotes
+    include Upvotable
+
+    def initialize(title, author)
+      @title = title
+      @author = author
+      @upvotes = 1
+    end
+  end
+
+  >> story = Story.new
+  >> story.upvote!
+  >> photo = Photo.new
+  >> photo.downvote!
+```
+You can have classes with the same name in two different modules! You use `include` to bring in a module.
 
