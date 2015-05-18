@@ -33,3 +33,20 @@ If you use `find_by` to search for a field value in a database table and that se
 
 ##Validations
 Validate your data before it's saved to the database. It's a good way to check stuff and make sure it's being submitted correctly. The validation even provides error messages. You can set the range of possible numeric entries, type of entries, etc.
+
+#Forms
+
+---
+##Code Along
+We are beginning with a code along using the ShirtApp in class 10.
+
+---
+There are two different ways to make forms, and each way is appropriate in different settings. First up, "Form Tag".
+
+##Form Tags
+Read **Fat Model Skinny Controller**!
+
+You shouldn't use excessive logic in the controller. You should, if you can, define it in the model.
+
+##Partials
+Partials *always* start with an underscore `_`. Bonus to that nomenclature is that the partials all show up at the top in your directory!
