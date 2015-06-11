@@ -1,0 +1,7 @@
+<p>cars</p>
+
+# <%= render 'form' %>
+
+<% @cars.each do |car| %>
+  <li><%= car.name %> | <%= car.year %></li>
+<% end %>
