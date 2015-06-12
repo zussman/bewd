@@ -20,24 +20,22 @@
 submit to the projects POST route by default. The
 'form_for :project' part tells rails that the form 
 is for our 'articles' resource. -->
-  <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </p>
-
-  <p>
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </p>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, class: "form-control" %>
+  </div>
 
   <%= f.fields_for :tasks do |task_form| %>
-    <%= task_form.text_field :name %>
+    <%= task_form.text_field :name, class: "form-control" %>
     <%= task_form.link_to_remove "Remove this task" %>
   <% end %>
 
-  <p><%= f.link_to_add "Add a task", :tasks %></p>
+  <%= f.link_to_add "Add a task", :tasks, class: "btn btn-default" %>
 
-  <p>
-    <%= f.submit %>
-  </p>
+  <%= f.submit class: "btn btn-primary" %>
+  
 <% end %>
