@@ -1,0 +1,43 @@
+<%= nested_form_for @project do |f| %>
+  
+  <% if @project.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@project.errors.count, "error") %> prevented this project from being saved:
+        <!-- 'pluralize' is a rails helper that takes a number and a string as arguments. If the number is greater than one, the string is automatically pluralized. -->
+      </h2>
+      <ul>
+        <% @project.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+<!-- The 'url: projects_path' tells the form to 
+submit to the projects POST route by default. The
+'form_for :project' part tells rails that the form 
+is for our 'articles' resource. -->
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </p>
+
+  <%= f.fields_for :tasks do |task_form| %>
+    <%= task_form.text_field :name %>
+    <%= task_form.link_to_remove "Remove this task" %>
+  <% end %>
+
+  <p><%= f.link_to_add "Add a task", :tasks %></p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
