@@ -1,14 +1,18 @@
-<h1>Projects</h1>
-<ul>
-  <% @projects.each do |project| %>
-    <li>
-      <h3><%= project.name %></h3>
-      <p><%= project.description %></p>
-      <% project.tasks.each do |task| %>
-        <li><%= task.name %></li>
-      <% end %>
-    </li>
-  <% end %>
-</ul>
-
-<%= link_to "Add Project", new_project_path %>
+<div class="page-header">
+  <h1>Projects</h1>
+</div>
+<%= link_to "Create a New Project", new_project_path, class: "btn btn-primary" %>
+<p></p>
+<% @projects.each do |project| %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3><%= link_to project.name, project_path(project) %></h3>
+      <h4><%= project.description %></h4>
+    </div>
+      <ul class="list-group">
+        <% project.tasks.each do |task| %>
+          <li class="list-group-item"><%= task.name %></li>
+        <% end %>
+      </ul>
+  </div>
+<% end %>

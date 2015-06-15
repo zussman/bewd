@@ -1,4 +1,10 @@
 class ProjectsController < ApplicationController
+  before_action :find_project, only: [:show, :edit, :update, :destroy]
+  
+  def find_project
+    @project = Project.find(params[:id])
+  end
+
   def index
     @projects = Project.all
   end
@@ -18,6 +24,17 @@ class ProjectsController < ApplicationController
       redirect_to @project
     else
       render 'new'
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @project.update(project_params)
+      redirect_to @project
+    else
+      render 'show'
     end
   end
 

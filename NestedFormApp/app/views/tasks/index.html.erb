@@ -1,2 +1,24 @@
-<h1>Tasks#index</h1>
-<p>Find me in app/views/tasks/index.html.erb</p>
+<h1>Tasks</h1>
+<% if @tasks.any? %>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <th>Task</th>
+        <th>Status</th>
+        <th>Project</th>
+        <th>Last Updated</th>
+      </thead>
+      <% @tasks.each do |task| %>
+        <tr>
+          <td><%= task.name %></td>
+          <td><%= task.status %></td>
+          <td><%= link_to task.project.name, project_path(task.project) %></td>
+          <td><%= task.updated_at %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+<% else %>
+  <p>You haven't created any tasks.</p>
+<% end %>
+<%= link_to "Add a task", new_task_path %>

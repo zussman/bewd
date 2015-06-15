@@ -1,0 +1,34 @@
+<%= nested_form_for @task do |f| %>
+  
+  <% if @task.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@task.errors.count, "error") %> prevented this task from being saved:
+        <!-- 'pluralize' is a rails helper that takes a number and a string as arguments. If the number is greater than one, the string is automatically pluralized. -->
+      </h2>
+      <ul>
+        <% @task.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+<!-- The 'url: tasks_path' tells the form to 
+submit to the tasks POST route by default. The
+'form_for :task' part tells rails that the form 
+is for our 'articles' resource. -->
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :status %>
+    <%= f.text_area :status, class: "form-control" %>
+  </div>
+
+  <%= f.submit class: "btn btn-primary" %>
+  
+<% end %>

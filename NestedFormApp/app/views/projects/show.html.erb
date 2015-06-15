@@ -1,2 +1,13 @@
-<h1>Projects#show</h1>
-<p>Find me in app/views/projects/show.html.erb</p>
+<div class="page-header">
+  <h1><%= @project.name %></h1>
+</div>
+<h3><%= @project.description %></h3>
+<% if @project.tasks.any? %>
+  <ul class="list-group">
+    <% @project.tasks.each do |task| %>
+      <li class="list-group-item"><%= task.name %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No tasks are associated with this project.</p><%= link_to "Create some!", edit_project_path %>
+<% end %>
