@@ -4,16 +4,14 @@
     <table class="table table-striped">
       <thead>
         <th>Task</th>
-        <th>Status</th>
         <th>Project</th>
         <th>Last Updated</th>
       </thead>
       <% @tasks.each do |task| %>
         <tr>
           <td><%= task.name %></td>
-          <td><%= task.status %></td>
           <td><%= link_to task.project.name, project_path(task.project) %></td>
-          <td><%= task.updated_at %></td>
+          <td><%= task.updated_at.strftime('%a %B %e, %Y at %I:%M %P') %></td>
         </tr>
       <% end %>
     </table>
