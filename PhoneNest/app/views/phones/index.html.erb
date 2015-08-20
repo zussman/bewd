@@ -1,0 +1,8 @@
+<h1>Phone Numbers</h1>
+<ul>
+  <% @phones.each do |phone| %>
+    <li><%= phone.number %> - <%= phone.phone_type.name %> - <%= link_to 'Delete', phone, method: :delete %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Add Phone Number', new_phone_path %>
