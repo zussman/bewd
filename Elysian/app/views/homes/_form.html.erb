@@ -1,6 +1,9 @@
 <%= simple_nested_form_for @home do |f| %>
 
   <%= f.input :square_footage %>
+  <%= f.input :account_number %>
+  <%= f.input :own, as: :radio_buttons, checked: true %>
+  <%= f.input :apartment, as: :radio_buttons, checked: false %>
 
   <%= f.fields_for :people do |people| %>
     <%= people.input :first_name %>
