@@ -1,0 +1,8 @@
+<h1>Phone Types</h1>
+<ul>
+  <% @phone_types.each do |type| %>
+    <li><%= type.name %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Add Phone Type', new_phone_type_path %>
