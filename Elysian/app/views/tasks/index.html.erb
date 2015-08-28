@@ -1,2 +1,30 @@
-<h1>Tasks#index</h1>
-<p>Find me in app/views/tasks/index.html.erb</p>
+<div class="page-header">
+  <h2>Tasks</h2>
+  <%= link_to 'Add New', new_task_path %>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Status</th>
+      <th>Task</th>
+      <th>Completion</th>
+      <th>Category</th>
+      <th>Involved</th>
+      <th>Date Due</th>
+      <th>Options</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tasks.each do |task| %>
+      <tr>
+       <td></td>
+       <td><%= task.task %></td>
+       <td></td>
+       <td></td>
+       <td></td>
+       <td></td>
+       <td>Edit Delete</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

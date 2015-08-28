@@ -3,5 +3,17 @@
   <%= f.input :first_name %>
   <%= f.input :last_name %>
 
+  <%= f.fields_for :phone_numbers do |phone| %>
+    <%= phone.input :phone_number, label: "Phone Number" %>
+    <%= phone.link_to_remove "Remove" %>
+  <% end %>
+  <%= f.link_to_add "Add Number", :phone_numbers, class: "btn btn-default" %>
+
+  <%= f.fields_for :emails do |email| %>
+    <%= email.input :address, label: "Email" %>
+    <%= email.link_to_remove "Remove" %>
+  <% end %>
+  <%= f.link_to_add "Add Email", :emails, class: "btn btn-default" %>
+
   <%= f.button :submit, "Save" %>
 <% end %>

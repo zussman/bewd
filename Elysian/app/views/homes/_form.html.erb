@@ -1,2 +1,23 @@
-<h1>Homes#_form</h1>
-<p>Find me in app/views/homes/_form.html.erb</p>
+<%= simple_nested_form_for @home do |f| %>
+
+  <%= f.input :square_footage %>
+
+  <%= f.fields_for :people do |people| %>
+    <%= people.input :first_name %>
+    <%= people.input :last_name %>
+    <%= people.fields_for :phone_numbers do |phone| %>
+      <%= phone.input :phone_number, label: "Phone Number" %>
+      <%= phone.link_to_remove "Remove" %>
+    <% end %>
+    <%= people.link_to_add "Add Phone Number", :phone_numbers, class: "btn btn-default" %>
+    <%= people.fields_for :emails do |email| %>
+      <%= email.input :address, label: "Email" %>
+      <%= email.link_to_remove "Remove" %>
+    <% end %>
+    <%= people.link_to_add "Add Email", :emails, class: "btn btn-default" %>  
+    <%= people.link_to_remove "Remove" %>
+  <% end %>
+  <%= f.link_to_add "Add Person", :people, class: "btn btn-default" %>
+
+  <%= f.button :submit, "Save" %>
+<% end %>

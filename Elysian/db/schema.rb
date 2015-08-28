@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150828130458) do
+ActiveRecord::Schema.define(version: 20150828204744) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "line_1"
@@ -30,20 +30,54 @@ ActiveRecord::Schema.define(version: 20150828130458) do
     t.string   "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "person_id"
   end
+
+  add_index "emails", ["person_id"], name: "index_emails_on_person_id"
+
+  create_table "homes", force: :cascade do |t|
+    t.integer  "square_footage"
+    t.boolean  "own"
+    t.integer  "person_id"
+    t.integer  "address_id"
+    t.boolean  "apartment"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "homes", ["address_id"], name: "index_homes_on_address_id"
+  add_index "homes", ["person_id"], name: "index_homes_on_person_id"
+
+  create_table "homes_people", force: :cascade do |t|
+    t.integer  "homes_id"
+    t.integer  "people_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "homes_people", ["homes_id"], name: "index_homes_people_on_homes_id"
+  add_index "homes_people", ["people_id"], name: "index_homes_people_on_people_id"
 
   create_table "people", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "email_id"
+    t.integer  "phone_number_id"
   end
+
+  add_index "people", ["email_id"], name: "index_people_on_email_id"
+  add_index "people", ["phone_number_id"], name: "index_people_on_phone_number_id"
 
   create_table "phone_numbers", force: :cascade do |t|
     t.string   "phone_number"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "person_id"
   end
+
+  add_index "phone_numbers", ["person_id"], name: "index_phone_numbers_on_person_id"
 
   create_table "states", force: :cascade do |t|
     t.string   "name"

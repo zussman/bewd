@@ -1,2 +1,20 @@
-<h1>Homes#index</h1>
-<p>Find me in app/views/homes/index.html.erb</p>
+<h2 class="page-header">Homes</h2>
+<%= link_to "Add Home", new_home_path %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Status</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Address</th>
+      <th>Sq. Ft.</th>
+      <th>Own/Rent</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @homes.each do |home| %>
+      <tr>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
