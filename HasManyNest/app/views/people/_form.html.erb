@@ -1,0 +1,17 @@
+<% form_for(@person) do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+  </p>
+
+  <% f.fields_for :person_phones do |pp| %>
+    <% pp.fields_for :phone do |phone| %>
+      <p>
+        <%= phone.label :number, "Phone Number" %>
+        <%= phone.text_field :number %>
+      </p>
+    <% end %>
+  <% end %>
+  <%= f.submit 'Submit' %>
+<% end %>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :issues, :jobs, :audits, :qhe_cs, :homes, :people, :tasks
+
   devise_for :users
   get 'welcome/index'
 
