@@ -11,14 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150828210101) do
+ActiveRecord::Schema.define(version: 20150829122551) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "line_1"
     t.string   "line_2"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "city_id"
+    t.integer  "state_id"
+    t.integer  "zip_id"
   end
+
+  add_index "addresses", ["city_id"], name: "index_addresses_on_city_id"
+  add_index "addresses", ["state_id"], name: "index_addresses_on_state_id"
+  add_index "addresses", ["zip_id"], name: "index_addresses_on_zip_id"
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
@@ -34,6 +41,12 @@ ActiveRecord::Schema.define(version: 20150828210101) do
   end
 
   add_index "emails", ["person_id"], name: "index_emails_on_person_id"
+
+  create_table "home_performance_statuses", force: :cascade do |t|
+    t.string   "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "homes", force: :cascade do |t|
     t.integer  "square_footage"
@@ -85,7 +98,10 @@ ActiveRecord::Schema.define(version: 20150828210101) do
     t.string   "abbreviation"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "address_id"
   end
+
+  add_index "states", ["address_id"], name: "index_states_on_address_id"
 
   create_table "tasks", force: :cascade do |t|
     t.string   "task"

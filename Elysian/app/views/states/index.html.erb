@@ -1,0 +1,22 @@
+<h2 class="page-header">States</h2>
+<%= link_to "Add State", new_state_path %>
+<div class="row">
+  <div class="col-sm-12">
+    <table class="table table-striped table-condensed" id="states">
+      <thead>
+        <tr>
+          <th>State</th>
+          <th>Abbreviation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @states.each do |state| %>
+          <tr>
+            <td><%= state.name %></td>
+            <td><%= state.abbreviation %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

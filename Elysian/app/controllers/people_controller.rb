@@ -1,10 +1,6 @@
 class PeopleController < ApplicationController
   def index
     @people = Person.all
-    respond_to do |format|
-      format.html
-      format.json { render json: PeopleDatatable.ner(view_context) }
-    end
   end
 
   def new
@@ -15,6 +11,7 @@ class PeopleController < ApplicationController
     @person = Person.create person_params
     if @person.save
       redirect_to action: 'index'
+      flash[:success] = "New person #{@person.first_name} #{@person.last_name} created!"
     else
       render action: 'new'
     end

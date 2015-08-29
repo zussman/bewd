@@ -12,8 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require dataTables/jquery.dataTables
+//= require dataTables/dataTables
+//= require jquery.purr
+//= require best_in_place
+//= require moment
 //= require twitter/bootstrap
 //= require jquery_nested_form
+//= require jquery.turbolinks
 //= require turbolinks
 //= require_tree .

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :issues, :jobs, :audits, :qhe_cs, :homes, :people, :tasks
+
+  resources :issues, :jobs, :audits, :qhe_cs, :homes, :people, :tasks, :home_performance_statuses, :addresses, :zips, :states, :cities
 
   devise_for :users
   get 'welcome/index'

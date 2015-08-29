@@ -1,8 +1,14 @@
 <%= simple_nested_form_for @person do |f| %>
 
-  <%= f.input :first_name %>
-  <%= f.input :last_name %>
-
+  <div class="row">
+    <div class="col-xs-6">
+      <%= f.input :first_name %>
+    </div>
+    <div class="col-xs-6">
+      <%= f.input :last_name %>
+    </div>
+  </div>
+  
   <%= f.fields_for :phone_numbers do |phone| %>
     <%= phone.input :phone_number, label: "Phone Number" %>
     <%= phone.link_to_remove "Remove" %>

@@ -5,6 +5,14 @@
   <%= f.input :own, as: :radio_buttons, checked: true %>
   <%= f.input :apartment, as: :radio_buttons, checked: false %>
 
+  <%= f.fields_for :addresses do |address| %>
+    <%= address.input :line_1 %>
+    <%= address.input :line_2 %>
+    <%= collection_select( :address, :city_id, City.all, :id, :name, { prompt: 'Select a city'}, { multiple: false } ) %>
+    <%= collection_select( :address, :state_id, State.all, :id, :name, {}, { :multiple => false } ) %>
+    <%= collection_select( :address, :zip_id, Zip.all, :id, :zipcode, { prompt: 'Select a zip code'}, { multiple: false } ) %>
+  <% end %>
+
   <%= f.fields_for :people do |people| %>
     <%= people.input :first_name %>
     <%= people.input :last_name %>
