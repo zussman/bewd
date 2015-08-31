@@ -23,6 +23,6 @@ class PeopleController < ApplicationController
 
   private
   def person_params
-    params.require(:person).permit(:id, :first_name, :last_name, :email_id, :phone_number_id, emails_attributes: [:id, :address], phone_numbers_attributes: [:id, :phone_number])
+    params.require(:person).permit(:id, :first_name, :last_name, :email_id, :phone_number_id, :phone_type_id, emails_attributes: [:id, :address], phone_numbers_attributes: [:id, :phone_number, phone_types_attributes: [:id, :name]])
   end
 end

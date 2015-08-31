@@ -1,5 +1,19 @@
 Rails.application.routes.draw do
 
+  get 'phone_numbers/index'
+
+  get 'phone_numbers/new'
+
+  get 'phone_numbers/create'
+
+  get 'phone_numbers/edit'
+
+  get 'phone_numbers/update'
+
+  get 'phone_numbers/show'
+
+  get 'phone_numbers/destroy'
+
   get 'homes/index'
 
   get 'homes/show'

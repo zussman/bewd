@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150831201510) do
+ActiveRecord::Schema.define(version: 20150831203321) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "line_1"
@@ -88,12 +88,20 @@ ActiveRecord::Schema.define(version: 20150831201510) do
 
   create_table "phone_numbers", force: :cascade do |t|
     t.string   "phone_number"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.integer  "person_id"
+    t.integer  "phone_type_id"
   end
 
   add_index "phone_numbers", ["person_id"], name: "index_phone_numbers_on_person_id"
+  add_index "phone_numbers", ["phone_type_id"], name: "index_phone_numbers_on_phone_type_id"
+
+  create_table "phone_types", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "name"
+  end
 
   create_table "residences", force: :cascade do |t|
     t.integer  "square_footage"
