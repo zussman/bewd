@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150830000048) do
+ActiveRecord::Schema.define(version: 20150831201510) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "line_1"
@@ -49,28 +49,14 @@ ActiveRecord::Schema.define(version: 20150830000048) do
   end
 
   create_table "homes", force: :cascade do |t|
-    t.integer  "square_footage"
-    t.boolean  "own"
+    t.integer  "residence_id"
     t.integer  "person_id"
-    t.integer  "address_id"
-    t.boolean  "apartment"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.string   "account_number"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
-  add_index "homes", ["address_id"], name: "index_homes_on_address_id"
   add_index "homes", ["person_id"], name: "index_homes_on_person_id"
-
-  create_table "homes_people", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "person_id"
-    t.integer  "home_id"
-  end
-
-  add_index "homes_people", ["home_id"], name: "index_homes_people_on_home_id"
-  add_index "homes_people", ["person_id"], name: "index_homes_people_on_person_id"
+  add_index "homes", ["residence_id"], name: "index_homes_on_residence_id"
 
   create_table "lead_sources", force: :cascade do |t|
     t.string   "name"
@@ -108,6 +94,20 @@ ActiveRecord::Schema.define(version: 20150830000048) do
   end
 
   add_index "phone_numbers", ["person_id"], name: "index_phone_numbers_on_person_id"
+
+  create_table "residences", force: :cascade do |t|
+    t.integer  "square_footage"
+    t.boolean  "own"
+    t.integer  "address_id"
+    t.boolean  "apartment"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "account_number"
+    t.integer  "utility_id"
+  end
+
+  add_index "residences", ["address_id"], name: "index_residences_on_address_id"
+  add_index "residences", ["utility_id"], name: "index_residences_on_utility_id"
 
   create_table "states", force: :cascade do |t|
     t.string   "name"

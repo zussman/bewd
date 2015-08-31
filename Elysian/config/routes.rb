@@ -1,5 +1,19 @@
 Rails.application.routes.draw do
 
+  get 'homes/index'
+
+  get 'homes/show'
+
+  get 'homes/new'
+
+  get 'homes/create'
+
+  get 'homes/edit'
+
+  get 'homes/update'
+
+  get 'homes/destroy'
+
   get "/auth/google_oauth2/callback", to: "sessions#create"
 
   resources :issues, :jobs, :audits, :qhe_cs, :homes, :people, :tasks, :home_performance_statuses, :addresses, :zips, :states, :cities, :calendars

@@ -18,7 +18,7 @@
       <li><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span><%= link_to 'Calendar', calendars_path %></li>
       <li><span class="glyphicon glyphicon-home" aria-hidden="true"></span><%= link_to 'Tasks', tasks_path %></li>
       <li role="separator" class="divider"></li>
-      <li><span class="glyphicon glyphicon-user" aria-hidden="true"></span><%= link_to 'People', people_path %></li>
+      <li><span class="glyphicon glyphicon-user" aria-hidden="true"></span><%= link_to 'People', people_path %><span class="badge"></span></li>
       <li><span class="glyphicon glyphicon-home" aria-hidden="true"></span><%= link_to 'Homes', homes_path %></li>
       <li><span class="glyphicon glyphicon-home" aria-hidden="true"></span><%= link_to 'QHECs', qhe_cs_path %></li>
       <li><span class="glyphicon glyphicon-home" aria-hidden="true"></span><%= link_to 'Audits', audits_path %></li>
@@ -38,13 +38,17 @@
         </form>
       </div>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+        <% if user_signed_in? %>
+          <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+        <% else %>
+          <li><%= link_to('Sign In', new_user_session_path) %></li>
+        <% end %>
         <li class="dropdown"><a class="dropdown-toggle count-info" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-inbox"></span></a></li>
         <li class="dropdown"><a class="dropdown-toggle count-info" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-bell"></span></a></li>
       </ul>
     </nav>
     <div class="page-content">
-      <div class="container">
+      <div class="container-fluid">
         <div class="row">
           <div class="col-md-12">
             <% flash.each do |key, value| %>

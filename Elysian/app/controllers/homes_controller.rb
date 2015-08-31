@@ -3,25 +3,35 @@ class HomesController < ApplicationController
     @homes = Home.all
   end
 
+  def show
+    @home = Home.find(params[:id])
+  end
+
   def new
     @home = Home.new
   end
 
   def create
     @home = Home.create home_params
+
     if @home.save
       redirect_to action: 'index'
     else
-      render action: 'new'
+      render 'new'
     end
   end
 
-  def show
-    @home = Home.find(params[:id])
+  def edit
+  end
+
+  def update
+  end
+
+  def destroy
   end
 
   private
   def home_params
-    params.require(:home).permit(:id, :square_footage, :own, :apartment, people_attributes: [:id, :first_name, :last_name, emails_attributes: [:id, :address], phone_numbers_attributes: [:id, :phone_number]], addresses_attributes: [:id, :line_1, :line_2, :city_id, :state_id, :zip_id])
+    params.require(:home).permit(:id, :person_id, :residence_id, residences_attributes: [:id, :square_footage, :own, :apartment, :account_number], people_attributes: [:id, :first_name, :last_name])
   end
 end

@@ -17,11 +17,11 @@
         <% @people.each do |person| %>
           <tr>
             <td>Status</td>
-            <td><%= person.first_name %></td>
-            <td><%= person.last_name %></td>
+            <td><%= link_to person.first_name, person_path(person) %></td>
+            <td><%= link_to person.last_name, person_path(person) %></td>
             <td></td>
-            <td><%= person.phone_numbers.any? ? person.phone_numbers.first.phone_number : "-" %></td>
-            <td><%= person.emails.any? ? person.emails.first.address : "-" %></td>
+            <td><%= person.main_phone %></td>
+            <td><%= person.main_email %></td>
           </tr>
         <% end %>
       </tbody>

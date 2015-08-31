@@ -1,0 +1,28 @@
+<h2 class="page-header">Homes</h2>
+<%= link_to "Add Home", new_home_path %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Status</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Address</th>
+      <th>SqFt.</th>
+      <th>Own/Rent</th>
+      <th>Apartment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @homes.each do |home| %>
+      <tr>
+        <td>Status</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><%= home.square_footage %></td>
+        <td><%= home.own %></td>
+        <td><%= home.apartment %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

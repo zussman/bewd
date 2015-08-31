@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-  def create
-    raise request.env["omniauth.auth"].to_yaml
-  end
+  #http://localhost:3000/auth/google_oauth2/callback
+  #http://localhost:3000/users/auth/google_oauth2
 end

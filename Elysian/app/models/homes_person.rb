@@ -1,4 +1,4 @@
 class HomesPerson < ActiveRecord::Base
-  belongs_to :homes
-  belongs_to :people
+  belongs_to :person
+  belongs_to :home
 end
