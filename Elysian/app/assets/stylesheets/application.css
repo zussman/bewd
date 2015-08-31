@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require dataTables/dataTables
+ *= require fullcalendar
  *= require sidebar
  *= require_self
  */

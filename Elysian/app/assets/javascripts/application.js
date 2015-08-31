@@ -16,6 +16,7 @@
 //= require jquery.purr
 //= require best_in_place
 //= require moment
+//= require fullcalendar
 //= require twitter/bootstrap
 //= require jquery_nested_form
 //= require jquery.turbolinks

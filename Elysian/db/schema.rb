@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150829122551) do
+ActiveRecord::Schema.define(version: 20150830000048) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "line_1"
@@ -63,14 +63,20 @@ ActiveRecord::Schema.define(version: 20150829122551) do
   add_index "homes", ["person_id"], name: "index_homes_on_person_id"
 
   create_table "homes_people", force: :cascade do |t|
-    t.integer  "homes_id"
-    t.integer  "people_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "person_id"
+    t.integer  "home_id"
+  end
+
+  add_index "homes_people", ["home_id"], name: "index_homes_people_on_home_id"
+  add_index "homes_people", ["person_id"], name: "index_homes_people_on_person_id"
+
+  create_table "lead_sources", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  add_index "homes_people", ["homes_id"], name: "index_homes_people_on_homes_id"
-  add_index "homes_people", ["people_id"], name: "index_homes_people_on_people_id"
 
   create_table "people", force: :cascade do |t|
     t.string   "first_name"
@@ -83,6 +89,16 @@ ActiveRecord::Schema.define(version: 20150829122551) do
 
   add_index "people", ["email_id"], name: "index_people_on_email_id"
   add_index "people", ["phone_number_id"], name: "index_people_on_phone_number_id"
+
+  create_table "person_leads", force: :cascade do |t|
+    t.integer  "lead_source_id"
+    t.integer  "person_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "person_leads", ["lead_source_id"], name: "index_person_leads_on_lead_source_id"
+  add_index "person_leads", ["person_id"], name: "index_person_leads_on_person_id"
 
   create_table "phone_numbers", force: :cascade do |t|
     t.string   "phone_number"
