@@ -1,56 +1,19 @@
-<%= simple_nested_form_for @home do |f| %>
+<%= simple_nested_form_for @residence do |f| %>
+  <%= f.error_notification %>
+  <%= collection_select(:residence, :utility_id, Utility.all, :id, :name, class: 'selectpicker') %>
   <%= f.input :square_footage %>
-  <%= f.input :account_number %>
-  <%= f.input :own, as: :radio_buttons, checked: true %>
-  <%= f.input :apartment, as: :radio_buttons, checked: false %>
-
-  <%= f.fields_for :addresses do |address| %>
-    <%= address.input :line_1 %>
-    <%= address.input :line_2 %>
-    <%= collection_select( :address, :city_id, City.all, :id, :name, { prompt: 'Select a city'}, { multiple: false } ) %>
-    <%= collection_select( :address, :state_id, State.all, :id, :name, {}, { :multiple => false } ) %>
-    <%= collection_select( :address, :zip_id, Zip.all, :id, :zipcode, { prompt: 'Select a zip code'}, { multiple: false } ) %>
-  <% end %>
-
-  <%= f.fields_for :homes_people do |home_person| %>
-    <%= home_person.fields_for :people do |person| %>
-      <%= person.input :first_name %>
-      <%= person.input :last_name %>
-
-      <%= person.fields_for :phone_numbers do |phone| %>
-        <%= phone.input :phone_number, label: "Phone Number" %>
-        <%= phone.link_to_remove "Remove" %>
-      <% end %>
-      <%= person.link_to_add "Add Phone", :phone_numbers, class: "btn btn-default" %>
-
-      <%= person.fields_for :emails do |email| %>
-        <%= email.input :address, label: "Email" %>
-        <%= email.link_to_remove "Remove" %>
-      <% end %>
-      <%= person.link_to_add "Add Email", :emails, class: "btn btn-default" %>
-      <%= person.link_to_remove "Remove" %>
+  <%= f.input :own %>
+  <%= f.input :apartment %>
+  <%= f.fields_for :address do |address| %>
+    <%= address.input :line_1, label: "Address Line 1" %>
+    <%= address.input :line_2, label: "Address Line 2" %>
+    <%= address.fields_for :city do |city| %>
+      <%= city.input :name, label: "City" %>
     <% end %>
-    <%= home_person.link_to_add "Add Person", :people, class: "btn btn-default" %>
-  <% end %>
-
-  <!-- 
-  <%= f.fields_for :people do |people| %>
-    <%= people.input :first_name %>
-    <%= people.input :last_name %>
-    <%= people.fields_for :phone_numbers do |phone| %>
-      <%= phone.input :phone_number, label: "Phone Number" %>
-      <%= phone.link_to_remove "Remove" %>
+    <%= collection_select(:address, :state_id, State.all, :id, :abbreviation) %>
+    <%= address.fields_for :zip do |zip| %>
+      <%= zip.input :zipcode %>
     <% end %>
-    <%= people.link_to_add "Add Phone Number", :phone_numbers, class: "btn btn-default" %>
-    <%= people.fields_for :emails do |email| %>
-      <%= email.input :address, label: "Email" %>
-      <%= email.link_to_remove "Remove" %>
-    <% end %>
-    <%= people.link_to_add "Add Email", :emails, class: "btn btn-default" %>  
-    <%= people.link_to_remove "Remove" %>
   <% end %>
-  <%= f.link_to_add "Add Person", :people, class: "btn btn-default" %>
-  -->
-
   <%= f.button :submit, "Save" %>
 <% end %>

@@ -1,28 +1,26 @@
-<h2 class="page-header">Homes</h2>
-<%= link_to "Add Home", new_home_path %>
-<table class="table">
-  <thead>
-    <tr>
-      <th>Status</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Address</th>
-      <th>SqFt.</th>
-      <th>Own/Rent</th>
-      <th>Apartment</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @homes.each do |home| %>
-      <tr>
-        <td>Status</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td><%= home.square_footage %></td>
-        <td><%= home.own %></td>
-        <td><%= home.apartment %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<h2 class="page-header">Residences</h2>
+<%= link_to "Add Residence", new_residence_path %>
+<div class="row">
+  <div class="col-sm-12">
+    <table class="table table-striped table-condensed display" id="residence">
+      <thead>
+        <tr>
+          <th>Utility</th>
+          <th>Address</th>
+          <th>Sq. Ft.</th>
+          <th>Res. Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @residences.each do |residence| %>
+          <tr>
+            <td><%= residence.utility_id %></td>
+            <td><%= residence %></td>
+            <td><%= number_with_delimiter(residence.square_footage, delimiter: ',') %></td>
+            <td><%= residence.sfoo %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

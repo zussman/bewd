@@ -1,0 +1,23 @@
+
+= form_for @car do |f|
+  = f.label :car_name
+  = f.text_field :name
+
+  = f.label :model_code
+  = f.text_field :model_xx
+
+  = f.fields_for :makes do |v|
+    = v.label :vin
+    = v.text_field :vin
+
+    = v.fields_for :features do |o|
+      = o.label :id, "Color"
+      = o.collection_select :id, Feature.where(feature_type_id: 1).order(:name), :id, :name, { prompt: "Select Color" }
+
+      = o.label :id, "Body Type"
+      = o.collection_select :id, Feature.where(feature_type_id: 2).order(:name), :id, :name, { prompt: "Select BodyType" }
+
+    = v.fields_for :pricings do |p|
+      = p.label :price
+      = p.select :currency, Pricing.all.collect{ |p| [currency_symbol(p.currency), p.currency] }, { include_blank: "Currency" }, { class: "selectpicker", data: {style: "btn-primary currency-dropdown"} }
+      = p.text_field :price

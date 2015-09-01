@@ -41,6 +41,6 @@ class AddressesController < ApplicationController
 
   private
   def address_params
-    params.require(:address).permit(:id, :line_1, :line_2, :city_id, :state_id, :zip_id, cities_attributes: [:id, :name, :_destroy], states_attributes: [:id, :name, :abbreviation, :_destroy], zips_attributes: [:id, :zipcode, :_destroy])
+    params.require(:address).permit(:id, :line_1, :line_2, :city_id, :state_id, :zip_id, cities_attributes: [:id, :name, :_destroy], states_attributes: [:id, :name, :abbreviation, :_destroy], zips_attributes: [:id, :zipcode, :_destroy], residences_attributes: [:id])
   end
 end
