@@ -1,36 +1,24 @@
 Rails.application.routes.draw do
 
-  get 'phone_numbers/index'
+ 
 
-  get 'phone_numbers/new'
+  get 'residences/index'
 
-  get 'phone_numbers/create'
+  get 'residences/new'
 
-  get 'phone_numbers/edit'
+  get 'residences/show'
 
-  get 'phone_numbers/update'
+  get 'residences/create'
 
-  get 'phone_numbers/show'
+  get 'residences/edit'
 
-  get 'phone_numbers/destroy'
+  get 'residences/update'
 
-  get 'homes/index'
-
-  get 'homes/show'
-
-  get 'homes/new'
-
-  get 'homes/create'
-
-  get 'homes/edit'
-
-  get 'homes/update'
-
-  get 'homes/destroy'
+  get 'residences/destroy'
 
   get "/auth/google_oauth2/callback", to: "sessions#create"
 
-  resources :issues, :jobs, :audits, :qhe_cs, :homes, :people, :tasks, :home_performance_statuses, :addresses, :zips, :states, :cities, :calendars
+  resources :issues, :jobs, :audits, :qhe_cs, :homes, :people, :tasks, :home_performance_statuses, :addresses, :zips, :states, :cities, :calendars, :residences, :phone_numbers
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   get 'welcome/index'

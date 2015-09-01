@@ -1,11 +1,10 @@
 class Person < ActiveRecord::Base
   has_many :emails
   has_many :phone_numbers
-  belongs_to :home
-  has_many :residences, through: :homes
+  has_and_belongs_to_many :homes
   accepts_nested_attributes_for :emails
   accepts_nested_attributes_for :phone_numbers
-  accepts_nested_attributes_for :home
+  accepts_nested_attributes_for :homes
 
   def full_name
     [first_name, last_name].compact.join(' ')

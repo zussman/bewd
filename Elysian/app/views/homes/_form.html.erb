@@ -1,5 +1,5 @@
 <%= simple_nested_form_for @home do |f| %>
-
+  <%= f.error_notification %>
   <%= f.fields_for :residences do |residence| %>
     <%= residence.input :square_footage %>
     <%= residence.input :account_number %>

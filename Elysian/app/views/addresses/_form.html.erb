@@ -1,4 +1,6 @@
 <%= simple_nested_form_for @address do |f| %>
+  <%= f.error_notification %>
+
   <%= f.input :line_1 %>
   <%= f.input :line_2 %>
   <%= collection_select( :address, :city_id, City.all, :id, :name, {}, { :multiple => false } ) %>

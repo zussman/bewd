@@ -18,6 +18,7 @@
 //= require moment
 //= require fullcalendar
 //= require twitter/bootstrap
+//= require bootstrap-select
 //= require jquery_nested_form
 //= require jquery.turbolinks
 //= require turbolinks
