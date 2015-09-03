@@ -21,6 +21,25 @@ class PeopleController < ApplicationController
     @person = Person.find(params[:id])
   end
 
+  def edit
+    @person = Person.find(params[:id])
+  end
+
+  def update
+    @person = Person.find params[:id]
+    if @person.update_attributes person_params
+      redirect_to people_path
+    else
+      render :action => :edit
+    end
+  end
+
+  def destroy
+    @person = Person.find params[:id]
+    @person.destroy
+    redirect_to people_path
+  end
+
   private
   def person_params
     params.require(:person).permit(:id, :first_name, :last_name, :email_id, :phone_number_id, :phone_type_id, emails_attributes: [:id, :address], phone_numbers_attributes: [:id, :phone_number, phone_types_attributes: [:id, :name]])
