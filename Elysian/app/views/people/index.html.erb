@@ -21,7 +21,16 @@
             <td><%= link_to person.last_name, person_path(person) %></td>
             <td></td>
             <td><%= person.main_phone %> <%= person.phone_type %></td>
-            <td><%= person.main_email %></td>
+            <td><%= person.main_email %> 
+              <div class="pull-right">
+                <%= link_to edit_person_path(person) do %>
+                  <span class="glyphicon glyphicon-pencil"></span>
+                <% end %>
+                <%= link_to person_path(person), data: { confirm: "Are you sure you want to delete #{ person.full_name } and all of their contact data?" }, method: :delete do %>
+                  <span class="glyphicon glyphicon-minus-sign"></span>
+                <% end %>
+              </div>
+            </td>
           </tr>
         <% end %>
       </tbody>
