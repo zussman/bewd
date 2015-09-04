@@ -16,12 +16,12 @@
       <tbody>
         <% @people.each do |person| %>
           <tr>
-            <td>Status</td>
-            <td><%= link_to person.first_name, person_path(person) %></td>
-            <td><%= link_to person.last_name, person_path(person) %></td>
+            <td><%= best_in_place person, :lead_source, :as => :select, :collection => @lead_sources %></td>
+            <td><%= best_in_place person, :first_name %></td>
+            <td><%= best_in_place person, :last_name %></td>
             <td></td>
-            <td><%= person.main_phone %> <%= person.phone_type %></td>
-            <td><%= person.main_email %> 
+            <td><%= best_in_place person, :main_phone %> <%= person.phone_type %></td>
+            <td><%= best_in_place person, :main_email %> 
               <div class="pull-right">
                 <%= link_to edit_person_path(person) do %>
                   <span class="glyphicon glyphicon-pencil"></span>
