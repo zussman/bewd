@@ -5,6 +5,7 @@
     <table class="table table-striped table-condensed display" id="homes">
       <thead>
         <tr>
+          <th>Account Number</th>
           <th>Status</th>
           <th>Utility</th>
           <th>Address</th>
@@ -17,6 +18,7 @@
       <tbody>
         <% @homes.each do |home| %>
           <tr>
+            <td><%= link_to home.account_number, home_path(home) %></td>
             <td>Status</td>
             <td></td>
             <td></td>

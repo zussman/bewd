@@ -15,5 +15,12 @@
       <%= zip.input :zipcode %>
     <% end %>
   <% end %>
+  <%= f.fields_for :homes do |home| %>
+    <%= home.input :account_number %>
+    <%= home.fields_for :person do |person| %>
+      <%= person.input :first_name %>
+      <%= person.input :last_name %>
+    <% end %>
+  <% end %>
   <%= f.button :submit, "Save" %>
 <% end %>

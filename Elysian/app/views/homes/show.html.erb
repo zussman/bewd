@@ -1,2 +1,9 @@
-<h1>Homes#show</h1>
-<p>Find me in app/views/homes/show.html.erb</p>
+<h1 class="page-header">Account Number: <%= @home.account_number %></h1>
+<div class="row">
+  <div class="col-md-4">
+    <h4>Albus Dumbledore</h4>
+    <p>1414 Fenwick Lane Silver Spring, MD 20910</p>
+    <p>Single Family Owner Occupied</p>
+    <p><strong>Sq. Ft.:</strong> <%= @home.residence.square_footage %></p>
+  </div>
+</div>

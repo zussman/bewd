@@ -13,14 +13,13 @@ Devise.setup do |config|
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
-  config.omniauth :google_oauth2, "GOOGLE_CLIENT_ID", "GOOGLE_CLIENT_SECRET",
-    {
-      :name => "google",
-      :scope => "email, calendar, tasks, drive, contacts, gmail",
-      :prompt => "select_account",
-      :image_aspect_ratio => "square",
-      :image_size => 50
-    }
+  config.omniauth :google_oauth2, "GOOGLE_CLIENT_ID", "GOOGLE_CLIENT_SECRET", { }
+
+  #    :name => "google",
+  #    :scope => "email, calendar, tasks, drive, contacts, gmail",
+  #    :prompt => "select_account",
+  #    :image_aspect_ratio => "square",
+  #    :image_size => 50
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
 
@@ -29,6 +28,7 @@ Devise.setup do |config|
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
   require 'devise/orm/active_record'
+  require 'omniauth-google-oauth2'
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is

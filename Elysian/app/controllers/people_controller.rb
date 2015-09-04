@@ -1,4 +1,7 @@
 class PeopleController < ApplicationController
+
+  respond_to :html, :json, :xml 
+  
   def index
     @people = Person.all
     @lead_sources = LeadSource.all
@@ -20,6 +23,7 @@ class PeopleController < ApplicationController
 
   def show
     @person = Person.find(params[:id])
+
   end
 
   def edit
@@ -28,8 +32,9 @@ class PeopleController < ApplicationController
 
   def update
     @person = Person.find params[:id]
+
     if @person.update_attributes person_params
-      redirect_to people_path
+      respond_with @person
     else
       render :action => :edit
     end

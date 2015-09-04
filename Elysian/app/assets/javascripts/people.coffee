@@ -6,3 +6,4 @@
 jQuery ->
   $('#people').dataTable()
   $('.best_in_place').best_in_place()
+  $('phone_number').intlTelInput()

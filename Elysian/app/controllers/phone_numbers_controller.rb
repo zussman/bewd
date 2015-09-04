@@ -20,7 +20,14 @@ class PhoneNumbersController < ApplicationController
     @phone_number = PhoneNumber.find(params[:id])
   end
 
+  respond_to :html, :json
   def update
+    @phone_number = PhoneNumber.find(params[:id])
+
+    if @phone_number.update_attributes phone_number_params
+    else
+      render :action => :edit
+    end
   end
 
   def show

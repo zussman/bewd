@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get "/auth/google_oauth2/callback", to: "sessions#create"
-
   resources :issues, :jobs, :audits, :qhe_cs, :homes, :people, :tasks, :home_performance_statuses, :addresses, :zips, :states, :cities, :calendars, :residences, :phone_numbers, :lead_sources
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }

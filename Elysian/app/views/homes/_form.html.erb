@@ -1,8 +1,8 @@
 <%= simple_nested_form_for @home do |f| %>
   <%= f.error_notification %>
+  <%= f.input :account_number %>
   <%= f.fields_for :residences do |residence| %>
     <%= residence.input :square_footage %>
-    <%= residence.input :account_number %>
     <%= residence.input :own, as: :radio_buttons, checked: true %>
     <%= residence.input :apartment, as: :radio_buttons, checked: false %>
   <% end %>

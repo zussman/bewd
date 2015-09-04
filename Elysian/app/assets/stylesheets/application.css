@@ -13,6 +13,8 @@
  *= require_tree .
  *= require dataTables/dataTables
  *= require fullcalendar
+ *= require styles
+ *= require intlTelInput
  *= require sidebar
  *= require_self
  */

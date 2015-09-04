@@ -32,6 +32,6 @@ class HomesController < ApplicationController
 
   private
   def home_params
-    params.require(:home).permit(:id, :person_id, :residence_id, residences_attributes: [:id, :square_footage, :own, :apartment, :account_number], people_attributes: [:id, :first_name, :last_name])
+    params.require(:home).permit(:id, :account_number, :person_id, :residence_id, residences_attributes: [:id, :square_footage, :own, :apartment], people_attributes: [:id, :first_name, :last_name])
   end
 end

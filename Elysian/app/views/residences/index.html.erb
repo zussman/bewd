@@ -15,7 +15,7 @@
         <% @residences.each do |residence| %>
           <tr>
             <td><%= residence.utility_id %></td>
-            <td><%= residence %></td>
+            <td><%= residence.address_id %></td>
             <td><%= number_with_delimiter(residence.square_footage, delimiter: ',') %></td>
             <td><%= residence.sfoo %></td>
           </tr>

@@ -1,1 +1,12 @@
-<h1 class="page-header"><%= best_in_place @person, :first_name %></h1>
+<h1 class="page-header"><%= best_in_place @person, :first_name %> <%= best_in_place @person, :last_name %></h1>
+<ul>
+  <li>Title: <%= best_in_place @person, :title %></li>
+  <% @person.phone_numbers.each do |phone_number| %>
+    <li>Phone Number: <%= best_in_place phone_number, :phone_number %></li>
+  <% end %>
+  <% @person.emails.each do |email| %>
+    <li>Phone Number: <%= best_in_place email, :address %></li>
+  <% end %>
+</ul>
+
+

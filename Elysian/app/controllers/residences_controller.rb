@@ -5,6 +5,8 @@ class ResidencesController < ApplicationController
 
   def new
     @residence = Residence.new
+    @homes = @residence.homes.build
+    @person = @homes.build_person
   end
 
   def show
@@ -41,6 +43,6 @@ class ResidencesController < ApplicationController
 
   private
   def residence_params
-    params.require(:residence).permit(:id, :square_footage, :own, :apartment, :address_id, :city_id, :state_id, :zip_id, :utility_id, addresses_attributes: [:id, :line_1, :line_2, cities_attributes: [:id, :name], zips_attributes: [:id, :zipcode]])
+    params.require(:residence).permit(:id, :square_footage, :own, :apartment, :address_id, :city_id, :state_id, :zip_id, :utility_id, addresses_attributes: [:id, :line_1, :line_2, cities_attributes: [:id, :name], zips_attributes: [:id, :zipcode]], homes_attributes: [:id, :account_number, person_attributes: [:id, :first_name, :last_name]])
   end
 end

@@ -8,15 +8,16 @@
       <%= f.input :last_name %>
     </div>
   </div>
+  <%= f.input :title %>
   
   <%= f.fields_for :phone_numbers do |phone| %>
     <div class="input-group">
       <div class="input-group-btn">
         <%= phone.collection_select(:phone_type_id, PhoneType.all, :id, :name, class: "btn btn-default dropdown-toggle") %>
-        <%= phone.input :phone_number, label: "Phone Number" %>
-        <%= phone.link_to_remove "Remove" %>
+        <%= phone.input :phone_number, as: :tel, html: { id: "phone_number" }, label: "Phone Number" %>
       </div>
     </div>
+    <%= phone.link_to_remove "Remove" %>
   <% end %>
   <%= f.link_to_add "Add Number", :phone_numbers, class: "btn btn-default" %>
 

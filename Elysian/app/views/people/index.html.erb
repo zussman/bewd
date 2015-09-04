@@ -16,14 +16,14 @@
       <tbody>
         <% @people.each do |person| %>
           <tr>
-            <td><%= best_in_place person, :lead_source, :as => :select, :collection => @lead_sources %></td>
+            <td><%= best_in_place person, :lead_source, :as => :select, :collection => Person::list_lead_sources %></td>
             <td><%= best_in_place person, :first_name %></td>
             <td><%= best_in_place person, :last_name %></td>
             <td></td>
             <td><%= best_in_place person, :main_phone %> <%= person.phone_type %></td>
             <td><%= best_in_place person, :main_email %> 
               <div class="pull-right">
-                <%= link_to edit_person_path(person) do %>
+                <%= link_to person_path(person) do %>
                   <span class="glyphicon glyphicon-pencil"></span>
                 <% end %>
                 <%= link_to person_path(person), data: { confirm: "Are you sure you want to delete #{ person.full_name } and all of their contact data?" }, method: :delete do %>

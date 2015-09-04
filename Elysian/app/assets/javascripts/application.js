@@ -17,6 +17,7 @@
 //= require best_in_place
 //= require moment
 //= require fullcalendar
+//= require intlTelInput
 //= require twitter/bootstrap
 //= require bootstrap-select
 //= require jquery_nested_form

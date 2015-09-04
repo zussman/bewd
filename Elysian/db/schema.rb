@@ -11,21 +11,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150904095214) do
+ActiveRecord::Schema.define(version: 20150904200654) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "line_1"
     t.string   "line_2"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.integer  "city_id"
     t.integer  "state_id"
     t.integer  "zip_id"
+    t.integer  "residence_id"
   end
 
   add_index "addresses", ["city_id"], name: "index_addresses_on_city_id"
+  add_index "addresses", ["residence_id"], name: "index_addresses_on_residence_id"
   add_index "addresses", ["state_id"], name: "index_addresses_on_state_id"
   add_index "addresses", ["zip_id"], name: "index_addresses_on_zip_id"
+
+  create_table "appointments", force: :cascade do |t|
+    t.string   "title"
+    t.integer  "program_id"
+    t.text     "details"
+    t.integer  "residence_id"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "appointments", ["program_id"], name: "index_appointments_on_program_id"
+  add_index "appointments", ["residence_id"], name: "index_appointments_on_residence_id"
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
@@ -51,8 +67,9 @@ ActiveRecord::Schema.define(version: 20150904095214) do
   create_table "homes", force: :cascade do |t|
     t.integer  "residence_id"
     t.integer  "person_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "account_number"
   end
 
   add_index "homes", ["person_id"], name: "index_homes_on_person_id"
@@ -81,6 +98,7 @@ ActiveRecord::Schema.define(version: 20150904095214) do
     t.integer  "email_id"
     t.integer  "phone_number_id"
     t.integer  "lead_source_id"
+    t.string   "title"
   end
 
   add_index "people", ["email_id"], name: "index_people_on_email_id"
@@ -121,7 +139,6 @@ ActiveRecord::Schema.define(version: 20150904095214) do
     t.boolean  "apartment"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-    t.string   "account_number"
     t.integer  "utility_id"
   end
 
@@ -157,10 +174,14 @@ ActiveRecord::Schema.define(version: 20150904095214) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["provider"], name: "index_users_on_provider"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["uid"], name: "index_users_on_uid"
 
   create_table "utilities", force: :cascade do |t|
     t.string   "name"
