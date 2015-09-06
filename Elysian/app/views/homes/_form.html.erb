@@ -6,11 +6,37 @@
     <%= residence.input :own, as: :radio_buttons, checked: true %>
     <%= residence.input :apartment, as: :radio_buttons, checked: false %>
   <% end %>
+  <%= f.link_to_add "Add Residence", :residences, class: "btn btn-default" %>
 
   <%= f.fields_for :people do |person| %>
-    <%= person.input :first_name %>
-    <%= person.input :last_name %>
+    <div class="row">
+    <div class="col-xs-6">
+      <%= person.input :first_name %>
+    </div>
+    <div class="col-xs-6">
+      <%= person.input :last_name %>
+    </div>
+  </div>
+  <%= person.input :title %>
+  
+  <%= person.fields_for :phone_numbers do |phone| %>
+    <div class="input-group">
+      <div class="input-group-btn">
+        <%= phone.collection_select(:phone_type_id, PhoneType.all, :id, :name, class: "btn btn-default dropdown-toggle") %>
+        <%= phone.input :phone_number, as: :tel, html: { id: "phone_number" }, label: "Phone Number" %>
+      </div>
+    </div>
+    <%= phone.link_to_remove "Remove" %>
   <% end %>
+  <%= person.link_to_add "Add Number", :phone_numbers, class: "btn btn-default" %>
+
+  <%= person.fields_for :emails do |email| %>
+    <%= email.input :address, label: "Email" %>
+    <%= email.link_to_remove "Remove" %>
+  <% end %>
+  <%= person.link_to_add "Add Email", :emails, class: "btn btn-default" %>
+  <% end %>
+  <%= f.link_to_add "Add Person", :people, class: "btn btn-default" %>
 
   <%= f.submit %>
 <% end %>

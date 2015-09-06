@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150904200654) do
+ActiveRecord::Schema.define(version: 20150906211231) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "line_1"
@@ -140,9 +140,11 @@ ActiveRecord::Schema.define(version: 20150904200654) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.integer  "utility_id"
+    t.integer  "home_id"
   end
 
   add_index "residences", ["address_id"], name: "index_residences_on_address_id"
+  add_index "residences", ["home_id"], name: "index_residences_on_home_id"
   add_index "residences", ["utility_id"], name: "index_residences_on_utility_id"
 
   create_table "states", force: :cascade do |t|

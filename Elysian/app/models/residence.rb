@@ -1,8 +1,7 @@
 class Residence < ActiveRecord::Base
-  has_many :homes
-  has_many :people, through: :homes
+  belongs_to :home
+  has_many :people, through: :home
   has_one :address
-  accepts_nested_attributes_for :homes
   accepts_nested_attributes_for :address
 
   validates :square_footage, length: { maximum: 50000, 

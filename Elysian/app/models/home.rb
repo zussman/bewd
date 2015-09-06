@@ -1,6 +1,6 @@
 class Home < ActiveRecord::Base
-  belongs_to :residence
-  belongs_to :people
-  accepts_nested_attributes_for :residence
+  has_many :residences
+  has_many :people
+  accepts_nested_attributes_for :residences
   accepts_nested_attributes_for :people
 end
