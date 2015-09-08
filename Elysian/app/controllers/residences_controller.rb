@@ -41,6 +41,6 @@ class ResidencesController < ApplicationController
 
   private
   def residence_params
-    params.require(:residence).permit(:square_footage, :own, :apartment, :address_id, :city_id, :state_id, :zip_id, :utility_id, addresses_attributes: [:id, :line_1, :line_2, cities_attributes: [:id, :name], zips_attributes: [:id, :zipcode]])
+    params.require(:residence).permit(:square_footage, :own, :apartment, :address_id, :city_id, :state_id, :zip_id, :utility_id, :home_id, homes_attributes: [:id], addresses_attributes: [:id, :line_1, :line_2, cities_attributes: [:id, :name], zips_attributes: [:id, :zipcode]])
   end
 end

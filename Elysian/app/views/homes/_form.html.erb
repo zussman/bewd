@@ -5,6 +5,19 @@
     <%= residence.input :square_footage %>
     <%= residence.input :own, as: :radio_buttons, checked: true %>
     <%= residence.input :apartment, as: :radio_buttons, checked: false %>
+    <%= residence.fields_for :addresses do |address| %>
+      <%= address.input :line_1 %>
+      <%= address.input :line_2 %>
+      <%= address.fields_for :cities do |city| %>
+        <%= city.input :name %>
+      <% end %>
+      <%= address.fields_for :states do |state| %>
+        <%= state.input :abbreviation %>
+      <% end %>
+      <%= address.fields_for :zips do |zip| %>
+        <%= zip.input :zipcode %>
+      <% end %>
+    <% end %>
   <% end %>
   <%= f.link_to_add "Add Residence", :residences, class: "btn btn-default" %>
 

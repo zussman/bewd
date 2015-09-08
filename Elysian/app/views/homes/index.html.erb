@@ -10,9 +10,7 @@
           <th>Utility</th>
           <th>Address</th>
           <th>Sq. Ft.</th>
-          <th>Own</th>
-          <th>Apt.</th>
-          <th>Owner</th>
+          <th>Own Status</th>
         </tr>
       </thead>
       <tbody>
@@ -20,11 +18,7 @@
           <tr>
             <td><%= link_to home.account_number, home_path(home) %></td>
             <td>Status</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td><%= resident %></td>
           </tr>
         <% end %>
       </tbody>
