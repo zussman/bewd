@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150908105021) do
+ActiveRecord::Schema.define(version: 20150909154704) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "line_1"
@@ -99,9 +99,11 @@ ActiveRecord::Schema.define(version: 20150908105021) do
     t.integer  "phone_number_id"
     t.integer  "lead_source_id"
     t.string   "title"
+    t.integer  "home_id"
   end
 
   add_index "people", ["email_id"], name: "index_people_on_email_id"
+  add_index "people", ["home_id"], name: "index_people_on_home_id"
   add_index "people", ["lead_source_id"], name: "index_people_on_lead_source_id"
   add_index "people", ["phone_number_id"], name: "index_people_on_phone_number_id"
 
@@ -140,10 +142,12 @@ ActiveRecord::Schema.define(version: 20150908105021) do
     t.integer  "address_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "utility_id"
   end
 
   add_index "residences", ["address_id"], name: "index_residences_on_address_id"
   add_index "residences", ["home_id"], name: "index_residences_on_home_id"
+  add_index "residences", ["utility_id"], name: "index_residences_on_utility_id"
 
   create_table "states", force: :cascade do |t|
     t.string   "name"

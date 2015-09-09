@@ -18,7 +18,10 @@
           <tr>
             <td><%= link_to home.account_number, home_path(home) %></td>
             <td>Status</td>
-            <td><%= home.residence %></td>
+            <td>Utility</td>
+            <td><%= home.address(home.id) rescue "No Record" %></td>
+            <td><%= home.square_footage(home.id) rescue "No Record" %></td>
+            <td><%= home.own_status(home.id) rescue "No Record" %></td>
           </tr>
         <% end %>
       </tbody>

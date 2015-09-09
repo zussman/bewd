@@ -1,4 +1,7 @@
 class AddressesController < ApplicationController
+  
+  autocomplete :city, :name, :full => true
+
   def index
     @addresses = Address.all
   end

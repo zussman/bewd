@@ -8,6 +8,8 @@ class Address < ActiveRecord::Base
   accepts_nested_attributes_for :zip
   accepts_nested_attributes_for :residence
 
+  attr_accessor :city_name
+
   def full_address
     [line_1, line_2, city.name, state.abbreviation, zip.zipcode].compact.join(' ')
   end

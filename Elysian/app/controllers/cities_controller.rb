@@ -1,6 +1,10 @@
 class CitiesController < ApplicationController
   def index
     @cities = City.all
+    if params[:search]
+      @cities = City.name_like("%#{params[:search]}%").order('name')
+    else
+    end
   end
 
   def show

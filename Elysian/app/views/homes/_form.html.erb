@@ -1,55 +1,59 @@
 <%= simple_nested_form_for @home do |f| %>
-  <%= f.error_notification %>
-  <%= f.input :account_number %>
-  <%= f.fields_for :residences do |residence| %>
-    <%= residence.input :square_footage %>
-    <%= residence.input :own, as: :radio_buttons, checked: true %>
-    <%= residence.input :apartment, as: :radio_buttons, checked: false %>
-    <%= residence.fields_for :addresses do |address| %>
-      <%= address.input :line_1 %>
-      <%= address.input :line_2 %>
-      <%= address.fields_for :cities do |city| %>
-        <%= city.input :name %>
+    <%= f.error_notification %>
+    <%= f.input :account_number %>
+    <%= f.fields_for :residences do |residence| %>
+      <%= residence.input :square_footage %>
+      <%= residence.input :own, as: :radio_buttons, checked: true %>
+      <%= residence.input :apartment, as: :radio_buttons, checked: false %>
+      <%= residence.fields_for :addresses do |address| %>
+        <%= address.input :line_1 %>
+        <%= address.input :line_2 %>
+          <div class="form-group">
+            <%= address.fields_for :cities do |city| %>
+              <%= city.input :name, label: "City" %>
+            <% end %>
+          </div>
+          <div class="form-group">
+            <%= collection_select(:address, :state_id, State.all, :id, :name) %>
+          </div>
+          <div class="form-group">
+            <%= address.fields_for :zips do |zip| %>
+              <%= zip.input :zipcode %>
+            <% end %>
+          </div>
+        <% end %>
       <% end %>
-      <%= address.fields_for :states do |state| %>
-        <%= state.input :abbreviation %>
-      <% end %>
-      <%= address.fields_for :zips do |zip| %>
-        <%= zip.input :zipcode %>
-      <% end %>
-    <% end %>
-  <% end %>
-  <%= f.link_to_add "Add Residence", :residences, class: "btn btn-default" %>
+    <%= f.link_to_add "Add Residence", :residences, class: "btn btn-default" %>
 
-  <%= f.fields_for :people do |person| %>
-    <div class="row">
-    <div class="col-xs-6">
-      <%= person.input :first_name %>
-    </div>
-    <div class="col-xs-6">
-      <%= person.input :last_name %>
-    </div>
-  </div>
-  <%= person.input :title %>
-  
-  <%= person.fields_for :phone_numbers do |phone| %>
-    <div class="input-group">
-      <div class="input-group-btn">
-        <%= phone.collection_select(:phone_type_id, PhoneType.all, :id, :name, class: "btn btn-default dropdown-toggle") %>
-        <%= phone.input :phone_number, as: :tel, html: { id: "phone_number" }, label: "Phone Number" %>
+    <%= f.fields_for :people do |person| %>
+      <div class="row">
+      <div class="col-xs-6">
+        <%= person.input :first_name %>
+      </div>
+      <div class="col-xs-6">
+        <%= person.input :last_name %>
       </div>
     </div>
-    <%= phone.link_to_remove "Remove" %>
-  <% end %>
-  <%= person.link_to_add "Add Number", :phone_numbers, class: "btn btn-default" %>
+    <%= person.input :title %>
+    
+    <%= person.fields_for :phone_numbers do |phone| %>
+      <div class="input-group">
+        <div class="input-group-btn">
+          <%= phone.collection_select(:phone_type_id, PhoneType.all, :id, :name, class: "btn btn-default dropdown-toggle") %>
+          <%= phone.input :phone_number, as: :tel, html: { id: "phone_number" }, label: "Phone Number" %>
+        </div>
+      </div>
+      <%= phone.link_to_remove "Remove" %>
+    <% end %>
+    <%= person.link_to_add "Add Number", :phone_numbers, class: "btn btn-default" %>
 
-  <%= person.fields_for :emails do |email| %>
-    <%= email.input :address, label: "Email" %>
-    <%= email.link_to_remove "Remove" %>
-  <% end %>
-  <%= person.link_to_add "Add Email", :emails, class: "btn btn-default" %>
-  <% end %>
-  <%= f.link_to_add "Add Person", :people, class: "btn btn-default" %>
+    <%= person.fields_for :emails do |email| %>
+      <%= email.input :address, label: "Email" %>
+      <%= email.link_to_remove "Remove" %>
+    <% end %>
+    <%= person.link_to_add "Add Email", :emails, class: "btn btn-default" %>
+    <% end %>
+    <%= f.link_to_add "Add Person", :people, class: "btn btn-default" %>
 
-  <%= f.submit %>
+    <%= f.submit %>
 <% end %>

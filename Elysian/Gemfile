@@ -29,6 +29,7 @@ gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) support
 gem "twitter-bootstrap-rails"
 gem 'simple_form'
 gem 'nested_form'
+gem 'jquery-ui-rails'
 gem 'devise'
 gem 'jquery-datatables-rails', '~> 3.2'
 gem 'ajax-datatables-rails'
@@ -39,6 +40,7 @@ gem 'will_paginate'
 gem "omniauth-google-oauth2"
 gem "figaro"
 gem 'intl-tel-input-rails'
+gem 'rails4-autocomplete'
 gem 'bootstrap-select-rails'
 
 # Use ActiveModel has_secure_password

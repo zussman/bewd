@@ -2,6 +2,10 @@ Rails.application.routes.draw do
 
   resources :issues, :jobs, :audits, :qhe_cs, :homes, :people, :tasks, :home_performance_statuses, :addresses, :zips, :states, :cities, :calendars, :residences, :phone_numbers, :lead_sources
 
+  resources :addresses do
+    get :autocomplete_city_name, :on => :collection
+  end
+  
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   get 'welcome/index'
 
