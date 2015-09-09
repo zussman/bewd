@@ -2,7 +2,7 @@ class Address < ActiveRecord::Base
   belongs_to :city 
   belongs_to :state
   belongs_to :zip
-  belongs_to :residence
+  has_one :residence
   accepts_nested_attributes_for :city
   accepts_nested_attributes_for :state
   accepts_nested_attributes_for :zip
