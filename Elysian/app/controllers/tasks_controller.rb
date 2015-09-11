@@ -10,7 +10,7 @@ class TasksController < ApplicationController
   def create
     @task = Task.create task_params
     if @task.save
-      render action: 'index'
+      redirect_to action: 'index'
     else
       render action: 'new'
     end
@@ -21,6 +21,6 @@ class TasksController < ApplicationController
 
   private
   def task_params
-    params.require(:task).permit(:id, :task)
+    params.require(:task).permit(:task, :task_category_id, task_categories_attributes: [:id, :name])
   end
 end

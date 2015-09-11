@@ -1,4 +1,5 @@
 <%= simple_nested_form_for @task do |f| %>
   <%= f.input :task %>
+  <%= f.collection_select(:task_category_id, TaskCategory.all, :id, :name) %>
   <%= f.button :submit %>
 <% end %>

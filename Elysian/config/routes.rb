@@ -1,5 +1,19 @@
 Rails.application.routes.draw do
 
+  get 'task_categories/index'
+
+  get 'task_categories/show'
+
+  get 'task_categories/new'
+
+  get 'task_categories/create'
+
+  get 'task_categories/edit'
+
+  get 'task_categories/update'
+
+  get 'task_categories/destroy'
+
   resources :issues, :jobs, :audits, :qhe_cs, :homes, :people, :tasks, :home_performance_statuses, :addresses, :zips, :states, :cities, :calendars, :residences, :phone_numbers, :lead_sources
 
   resources :addresses do

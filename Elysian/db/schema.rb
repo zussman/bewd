@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150909154704) do
+ActiveRecord::Schema.define(version: 20150911200050) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "line_1"
@@ -159,11 +159,20 @@ ActiveRecord::Schema.define(version: 20150909154704) do
 
   add_index "states", ["address_id"], name: "index_states_on_address_id"
 
-  create_table "tasks", force: :cascade do |t|
-    t.string   "task"
+  create_table "task_categories", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string   "task"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "task_category_id"
+  end
+
+  add_index "tasks", ["task_category_id"], name: "index_tasks_on_task_category_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
